@@ -9,10 +9,10 @@ const ContactSection = () => {
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Left Content */}
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#545454] mb-6">
               Get in touch!
             </h2>
-            <p className="text-gray-600 mb-8 leading-relaxed">
+            <p className="text-[#545454]/80 mb-8 leading-relaxed">
               Ready to take control of your financial future? Our expert advisors are here to help you 
               navigate your financial journey with personalized strategies and professional guidance.
             </p>
@@ -26,9 +26,9 @@ const ContactSection = () => {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-1">Phone</h4>
-                  <p className="text-gray-600">+1 (555) 123-4567</p>
-                  <p className="text-gray-600">+1 (555) 987-6543</p>
+                  <h4 className="font-semibold text-[#545454] mb-1">Phone</h4>
+                  <p className="text-[#545454]/80">+1 (555) 123-4567</p>
+                  <p className="text-[#545454]/80">+1 (555) 987-6543</p>
                 </div>
               </div>
 
@@ -39,9 +39,9 @@ const ContactSection = () => {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-1">Email</h4>
-                  <p className="text-gray-600">info@nexussadvisory.com</p>
-                  <p className="text-gray-600">support@nexussadvisory.com</p>
+                  <h4 className="font-semibold text-[#545454] mb-1">Email</h4>
+                  <p className="text-[#545454]/80">info@nexussadvisory.com</p>
+                  <p className="text-[#545454]/80">support@nexussadvisory.com</p>
                 </div>
               </div>
 
@@ -53,9 +53,9 @@ const ContactSection = () => {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-1">Office</h4>
-                  <p className="text-gray-600">123 Financial District</p>
-                  <p className="text-gray-600">New York, NY 10001</p>
+                  <h4 className="font-semibold text-[#545454] mb-1">Office</h4>
+                  <p className="text-[#545454]/80">123 Financial District</p>
+                  <p className="text-[#545454]/80">New York, NY 10001</p>
                 </div>
               </div>
 
@@ -66,9 +66,9 @@ const ContactSection = () => {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800 mb-1">Business Hours</h4>
-                  <p className="text-gray-600">Monday - Friday: 9:00 AM - 6:00 PM</p>
-                  <p className="text-gray-600">Saturday: 10:00 AM - 2:00 PM</p>
+                  <h4 className="font-semibold text-[#545454] mb-1">Business Hours</h4>
+                  <p className="text-[#545454]/80">Monday - Friday: 9:00 AM - 6:00 PM</p>
+                  <p className="text-[#545454]/80">Saturday: 10:00 AM - 2:00 PM</p>
                 </div>
               </div>
             </div>
@@ -82,7 +82,7 @@ const ContactSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ amount: 0.3 }}
           >
-            <h3 className="text-2xl font-bold text-gray-800 mb-6">
+            <h3 className="text-2xl font-bold text-[#545454] mb-6">
               Send us a message
             </h3>
             
@@ -104,7 +104,7 @@ const ContactSection = () => {
                       id="firstName"
                       name="firstName"
                       placeholder="Name"
-                      className="w-full pl-10 pr-4 py-4 bg-transparent border-0 border-b-2 border-gray-300 border-dashed focus:border-solid focus:border-[#4DC6D7] focus:outline-none transition-all duration-300 text-gray-800 placeholder-gray-500"
+                      className="w-full pl-10 pr-4 py-4 bg-transparent border-0 border-b-2 border-[#545454]/20 border-dashed focus:border-solid focus:border-[#4DC6D7] focus:outline-none transition-all duration-300 text-[#545454] placeholder-gray-500"
                     />
                     <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#4DC6D7] border-animation transition-all duration-500 ease-out"></div>
                   </div>
@@ -126,7 +126,7 @@ const ContactSection = () => {
                       id="email"
                       name="email"
                       placeholder="Email Address"
-                      className="w-full pl-10 pr-4 py-4 bg-transparent border-0 border-b-2 border-gray-300 border-dashed focus:border-solid focus:border-[#4DC6D7] focus:outline-none transition-all duration-300 text-gray-800 placeholder-gray-500"
+                      className="w-full pl-10 pr-4 py-4 bg-transparent border-0 border-b-2 border-[#545454]/20 border-dashed focus:border-solid focus:border-[#4DC6D7] focus:outline-none transition-all duration-300 text-[#545454] placeholder-gray-500"
                     />
                     <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#4DC6D7] border-animation transition-all duration-500 ease-out"></div>
                   </div>
@@ -149,7 +149,7 @@ const ContactSection = () => {
                     id="phone"
                     name="phone"
                     placeholder="Phone"
-                    className="w-full pl-10 pr-4 py-4 bg-transparent border-0 border-b-2 border-gray-300 border-dashed focus:border-solid focus:border-[#4DC6D7] focus:outline-none transition-all duration-300 text-gray-800 placeholder-gray-500"
+                    className="w-full pl-10 pr-4 py-4 bg-transparent border-0 border-b-2 border-[#545454]/20 border-dashed focus:border-solid focus:border-[#4DC6D7] focus:outline-none transition-all duration-300 text-[#545454] placeholder-gray-500"
                   />
                   <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#4DC6D7] border-animation transition-all duration-500 ease-out"></div>
                 </div>
@@ -171,7 +171,7 @@ const ContactSection = () => {
                     id="subject"
                     name="subject"
                     placeholder="Subject"
-                    className="w-full pl-10 pr-4 py-4 bg-transparent border-0 border-b-2 border-gray-300 border-dashed focus:border-solid focus:border-[#4DC6D7] focus:outline-none transition-all duration-300 text-gray-800 placeholder-gray-500"
+                    className="w-full pl-10 pr-4 py-4 bg-transparent border-0 border-b-2 border-[#545454]/20 border-dashed focus:border-solid focus:border-[#4DC6D7] focus:outline-none transition-all duration-300 text-[#545454] placeholder-gray-500"
                   />
                   <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#4DC6D7] border-animation transition-all duration-500 ease-out"></div>
                 </div>
@@ -190,7 +190,7 @@ const ContactSection = () => {
                     name="message"
                     rows={4}
                     placeholder="How can we help you? Feel free to get in touch!"
-                    className="w-full pl-4 pr-4 py-4 bg-transparent border-0 border-b-2 border-gray-300 border-dashed focus:border-solid focus:border-[#4DC6D7] focus:outline-none transition-all duration-300 text-gray-800 placeholder-gray-500 resize-none"
+                    className="w-full pl-4 pr-4 py-4 bg-transparent border-0 border-b-2 border-[#545454]/20 border-dashed focus:border-solid focus:border-[#4DC6D7] focus:outline-none transition-all duration-300 text-[#545454] placeholder-gray-500 resize-none"
                   ></textarea>
                   <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#4DC6D7] border-animation transition-all duration-500 ease-out"></div>
                 </div>
@@ -208,9 +208,9 @@ const ContactSection = () => {
                   type="checkbox"
                   id="privacy"
                   name="privacy"
-                  className="w-4 h-4 text-[#4DC6D7] border-2 border-gray-300 rounded focus:ring-[#4DC6D7] focus:ring-2"
+                  className="w-4 h-4 text-[#4DC6D7] border-2 border-[#545454]/20 rounded focus:ring-[#4DC6D7] focus:ring-2"
                 />
-                <label htmlFor="privacy" className="text-sm text-gray-600">
+                <label htmlFor="privacy" className="text-sm text-[#545454]/80">
                   I agree that my data is{" "}
                   <a href="#" className="text-[#4DC6D7] hover:text-[#3bb5c6] underline">
                     collected and stored

@@ -79,3 +79,39 @@ input[type="checkbox"]:checked {
   width: 300px;
   height: 300px;
 }
+
+/* Dropdown positioning fixes */
+nav {
+  position: relative;
+  overflow: visible !important;
+  z-index: 50;
+}
+
+header {
+  position: relative;
+  z-index: 50;
+}
+
+.dropdown-container {
+  position: static;
+  overflow: visible;
+}
+
+/* Ensure dropdowns appear above all content */
+.services-dropdown {
+  z-index: 99999 !important;
+  position: absolute;
+  isolation: isolate;
+}
+
+/* Hero section should be lower than navbar */
+.hero-section {
+  z-index: 1;
+  position: relative;
+}
+
+/* Main content should be lower than navbar */
+main {
+  position: relative;
+  z-index: 1;
+}

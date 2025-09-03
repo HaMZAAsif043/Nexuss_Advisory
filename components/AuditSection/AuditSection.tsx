@@ -36,8 +36,8 @@ const AuditSection = () => {
                   </svg>
                 </div>
                 <div>
-                  <div className="text-sm font-semibold text-gray-800">Audit Success</div>
-                  <div className="text-xs text-gray-600">98% Resolution Rate</div>
+                  <div className="text-sm font-semibold text-[#545454]">Audit Success</div>
+                  <div className="text-xs text-[#545454]/80">98% Resolution Rate</div>
                 </div>
               </div>
             </motion.div>
@@ -45,11 +45,11 @@ const AuditSection = () => {
 
           {/* Right Content */}
           <div className="order-1 lg:order-2">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#545454] mb-6">
               Challenging the<br />
               results of an audit
             </h2>
-            <p className="text-gray-600 mb-6 leading-relaxed">
+            <p className="text-[#545454]/80 mb-6 leading-relaxed">
               When audit results don&apos;t align with your expectations or you believe there are discrepancies, 
               our expert team provides comprehensive audit review and challenge services. We help you navigate 
               complex audit findings and ensure fair and accurate assessments.
@@ -61,8 +61,8 @@ const AuditSection = () => {
                   <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800">Comprehensive Review</h4>
-                  <p className="text-gray-600 text-sm">Thorough analysis of audit methodologies and findings</p>
+                  <h4 className="font-semibold text-[#545454]">Comprehensive Review</h4>
+                  <p className="text-[#545454]/80 text-sm">Thorough analysis of audit methodologies and findings</p>
                 </div>
               </div>
               
@@ -71,8 +71,8 @@ const AuditSection = () => {
                   <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800">Expert Representation</h4>
-                  <p className="text-gray-600 text-sm">Professional advocacy during audit challenges</p>
+                  <h4 className="font-semibold text-[#545454]">Expert Representation</h4>
+                  <p className="text-[#545454]/80 text-sm">Professional advocacy during audit challenges</p>
                 </div>
               </div>
               
@@ -81,8 +81,8 @@ const AuditSection = () => {
                   <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800">Documentation Support</h4>
-                  <p className="text-gray-600 text-sm">Complete documentation and evidence preparation</p>
+                  <h4 className="font-semibold text-[#545454]">Documentation Support</h4>
+                  <p className="text-[#545454]/80 text-sm">Complete documentation and evidence preparation</p>
                 </div>
               </div>
             </div>

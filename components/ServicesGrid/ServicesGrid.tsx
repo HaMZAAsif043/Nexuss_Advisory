@@ -107,10 +107,10 @@ const ServicesGrid = () => {
               
               {/* Service Info */}
               <div className="text-center">
-                <h3 className="text-lg font-semibold text-gray-800 mb-2 group-hover:text-[#4DC6D7] transition-colors">
+                <h3 className="text-lg font-semibold text-[#545454] mb-2 group-hover:text-[#4DC6D7] transition-colors">
                   {service.title}
                 </h3>
-                <p className="text-gray-600 text-sm">
+                <p className="text-[#545454]/80 text-sm">
                   {service.description}
                 </p>
               </div>
@@ -126,10 +126,10 @@ const ServicesGrid = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ amount: 0.3 }}
         >
-          <h3 className="text-2xl font-bold text-gray-800 mb-4">
+          <h3 className="text-2xl font-bold text-[#545454] mb-4">
             Ready to transform your financial future?
           </h3>
-          <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+          <p className="text-[#545454]/80 mb-6 max-w-2xl mx-auto">
             Choose from our comprehensive range of services designed to meet your unique needs and goals.
           </p>
           <motion.button 

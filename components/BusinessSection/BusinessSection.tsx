@@ -16,7 +16,7 @@ const BusinessSection = () => {
             viewport={{ amount: 0.3 }}
           >
             <motion.h2 
-              className="text-3xl md:text-4xl font-bold text-gray-800 mb-6"
+              className="text-3xl md:text-4xl font-bold text-[#545454] mb-6"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -26,7 +26,7 @@ const BusinessSection = () => {
               organizations
             </motion.h2>
             <motion.p 
-              className="text-gray-600 mb-6 leading-relaxed"
+              className="text-[#545454]/80 mb-6 leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
@@ -56,7 +56,7 @@ const BusinessSection = () => {
               ].map((item, index) => (
                 <motion.li 
                   key={index}
-                  className="flex items-center text-gray-700"
+                  className="flex items-center text-[#545454]/90"
                   variants={{
                     hidden: { opacity: 0, x: -20 },
                     visible: { opacity: 1, x: 0 }
@@ -131,7 +131,7 @@ const BusinessSection = () => {
                 >
                   500+
                 </motion.div>
-                <div className="text-gray-600 text-sm">Businesses Served</div>
+                <div className="text-[#545454]/80 text-sm">Businesses Served</div>
               </div>
             </motion.div>
           </motion.div>

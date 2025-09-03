@@ -53,10 +53,10 @@ const ArticlesSection = () => {
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#545454] mb-4">
             Latest articles & tips
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="text-[#545454]/80 max-w-2xl mx-auto">
             Stay informed with expert insights, industry trends, and practical financial advice 
             from our team of experienced advisors.
           </p>
@@ -83,17 +83,17 @@ const ArticlesSection = () => {
 
               {/* Article Content */}
               <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-[#4DC6D7] transition-colors line-clamp-2">
+                <h3 className="text-xl font-bold text-[#545454] mb-3 group-hover:text-[#4DC6D7] transition-colors line-clamp-2">
                   {article.title}
                 </h3>
-                <p className="text-gray-600 mb-4 line-clamp-3">
+                <p className="text-[#545454]/80 mb-4 line-clamp-3">
                   {article.excerpt}
                 </p>
                 
                 {/* Article Meta */}
-                <div className="flex items-center justify-between text-sm text-gray-500">
+                <div className="flex items-center justify-between text-sm text-[#545454]/70">
                   <div className="flex items-center space-x-2">
-                    <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
+                    <div className="w-8 h-8 bg-[#545454]/10 rounded-full flex items-center justify-center">
                       <span className="text-xs font-medium">
                         {article.author.split(' ').map(n => n[0]).join('')}
                       </span>
@@ -123,17 +123,17 @@ const ArticlesSection = () => {
 
         {/* Newsletter Signup */}
         <div className="bg-white rounded-lg shadow-lg p-8 text-center max-w-2xl mx-auto">
-          <h3 className="text-2xl font-bold text-gray-800 mb-4">
+          <h3 className="text-2xl font-bold text-[#545454] mb-4">
             Stay Updated
           </h3>
-          <p className="text-gray-600 mb-6">
+          <p className="text-[#545454]/80 mb-6">
             Subscribe to our newsletter for weekly financial tips and market insights.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+              className="flex-1 px-4 py-3 border border-[#545454]/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
             />
             <button className="bg-[#4DC6D7] hover:bg-[#3bb5c6] text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 whitespace-nowrap shadow-lg hover:shadow-xl">
               Subscribe

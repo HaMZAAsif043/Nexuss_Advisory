@@ -32,7 +32,7 @@ const AreasOfFocus = () => {
           viewport={{ amount: 0.3 }}
         >
           <motion.h2 
-            className="text-3xl md:text-4xl font-bold text-gray-800 mb-12"
+            className="text-3xl md:text-4xl font-bold text-[#545454] mb-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -74,10 +74,10 @@ const AreasOfFocus = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={area.icon} />
                   </svg>
                 </motion.div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-2 group-hover:text-[#4DC6D7] transition-colors duration-300">
+                <h3 className="text-xl font-semibold text-[#545454] mb-2 group-hover:text-[#4DC6D7] transition-colors duration-300">
                   {area.title}
                 </h3>
-                <p className="text-gray-600 group-hover:text-gray-700 transition-colors duration-300">
+                <p className="text-[#545454]/80 group-hover:text-[#545454]/90 transition-colors duration-300">
                   {area.description}
                 </p>
               </motion.div>

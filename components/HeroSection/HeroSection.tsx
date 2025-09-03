@@ -5,17 +5,30 @@ import { motion } from 'framer-motion';
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen bg-gray-50 overflow-hidden">
+    <section className="relative min-h-screen bg-gradient-to-br from-[#0798B1] via-[#4DC6D7] to-[#545454] overflow-hidden hero-section">
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
           src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
           alt="Hero Background - Professional Business Meeting"
           fill
-          className="object-cover"
+          className="object-cover opacity-30"
           priority
         />
-        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0798B1]/80 via-[#4DC6D7]/60 to-[#545454]/80"></div>
+        {/* Animated Gradient Overlays */}
+        <motion.div 
+          className="absolute inset-0 bg-gradient-to-r from-[#4DC6D7]/20 to-transparent"
+          animate={{
+            opacity: [0.3, 0.7, 0.3],
+            background: [
+              "linear-gradient(45deg, rgba(77, 198, 215, 0.2) 0%, transparent 100%)",
+              "linear-gradient(135deg, rgba(7, 152, 177, 0.3) 0%, transparent 100%)",
+              "linear-gradient(45deg, rgba(77, 198, 215, 0.2) 0%, transparent 100%)"
+            ]
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
       </div>
 
       {/* Content */}
@@ -29,39 +42,88 @@ const HeroSection = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ amount: 0.3 }}
           >
+            <motion.div
+              className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-[#4DC6D7] font-semibold mb-6 border border-white/20"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ amount: 0.3 }}
+            >
+              🌟 Financial Excellence Redefined
+            </motion.div>
+            
             <motion.h1 
-              className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 bg-gradient-to-r from-white via-[#4DC6D7] to-white bg-clip-text text-transparent"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
               viewport={{ amount: 0.3 }}
             >
               Plan for tomorrow,<br />
-              live for today!
+              <span className="text-white">live for today!</span>
             </motion.h1>
+            
             <motion.p 
-              className="text-lg md:text-xl mb-8 text-gray-200"
+              className="text-lg md:text-xl mb-8 text-white/90 leading-relaxed"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
               viewport={{ amount: 0.3 }}
             >
-              Professional financial advisory services to help you secure your future while enjoying the present.
+              Professional financial advisory services to help you secure your future while enjoying the present. 
+              Experience growth, security, and prosperity with our expert guidance.
             </motion.p>
-            <motion.button 
-              className="bg-[#4DC6D7] hover:bg-[#3bb5c6] text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
+            
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-4 mb-8"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
               viewport={{ amount: 0.3 }}
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
             >
-              Get Started
-            </motion.button>
+              <motion.button 
+                className="group relative overflow-hidden bg-white text-[#545454] px-8 py-4 rounded-lg font-semibold transition-all duration-300 shadow-2xl hover:shadow-[#4DC6D7]/25 border border-white/20"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <span className="relative z-10">Get Started Today</span>
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-[#4DC6D7] to-[#0798B1] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  initial={{ x: "-100%" }}
+                  whileHover={{ x: "0%" }}
+                  transition={{ duration: 0.3 }}
+                />
+              </motion.button>
+              
+              <motion.button 
+                className="group border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-[#545454] transition-all duration-300 backdrop-blur-sm bg-white/10"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <span className="group-hover:text-[#545454]">Learn More</span>
+              </motion.button>
+            </motion.div>
+
+            {/* Trust Indicators */}
+            <motion.div
+              className="flex items-center space-x-6 text-white/80"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
+              viewport={{ amount: 0.3 }}
+            >
+              <div className="flex items-center space-x-2">
+                <div className="w-3 h-3 bg-[#4DC6D7] rounded-full animate-pulse"></div>
+                <span className="text-sm font-medium">500+ Happy Clients</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <div className="w-3 h-3 bg-[#4DC6D7] rounded-full animate-pulse" style={{ animationDelay: "0.5s" }}></div>
+                <span className="text-sm font-medium">15+ Years Experience</span>
+              </div>
+            </motion.div>
           </motion.div>
 
-          {/* Right Content - Calendar */}
+          {/* Right Content - Enhanced Visual Element */}
           <motion.div 
             className="flex justify-center lg:justify-end"
             initial={{ opacity: 0, y: 50 }}
@@ -70,73 +132,88 @@ const HeroSection = () => {
             viewport={{ amount: 0.3 }}
           >
             <motion.div 
-              className="bg-white rounded-lg shadow-xl p-6 max-w-sm w-full"
-              whileHover={{ scale: 1.02, y: -5 }}
-              transition={{ duration: 0.3 }}
+              className="relative"
+              animate={{ 
+                y: [0, -10, 0],
+                rotate: [0, 1, 0, -1, 0]
+              }}
+              transition={{ 
+                duration: 6, 
+                repeat: Infinity, 
+                ease: "easeInOut" 
+              }}
             >
-              <div className="text-center mb-4">
-                <h3 className="text-lg font-semibold text-gray-800">September 2025</h3>
+              {/* Floating Cards */}
+              <div className="relative w-80 h-96">
+                {/* Main Card */}
+                <motion.div 
+                  className="absolute inset-0 bg-white/95 backdrop-blur-lg rounded-2xl shadow-2xl p-6 border border-white/20"
+                  whileHover={{ scale: 1.02, y: -5 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="h-full flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center justify-between mb-4">
+                        <h3 className="text-xl font-bold text-[#545454]">Portfolio Growth</h3>
+                        <div className="w-12 h-12 bg-gradient-to-r from-[#4DC6D7] to-[#0798B1] rounded-full flex items-center justify-center">
+                          <span className="text-white font-bold text-lg">📈</span>
+                        </div>
+                      </div>
+                      <div className="space-y-3">
+                        <div className="flex justify-between items-center">
+                          <span className="text-[#545454]/70">YTD Return</span>
+                          <span className="text-[#4DC6D7] font-bold">+24.5%</span>
+                        </div>
+                        <div className="w-full bg-gray-200 rounded-full h-2">
+                          <motion.div 
+                            className="bg-gradient-to-r from-[#4DC6D7] to-[#0798B1] h-2 rounded-full"
+                            initial={{ width: "0%" }}
+                            whileInView={{ width: "75%" }}
+                            transition={{ duration: 2, delay: 1 }}
+                            viewport={{ amount: 0.3 }}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <div className="text-2xl font-bold text-[#545454]">$2.4M</div>
+                      <div className="text-[#545454]/70">Total Assets</div>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* Floating Elements */}
+                <motion.div 
+                  className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-r from-[#4DC6D7] to-[#0798B1] rounded-full flex items-center justify-center shadow-xl"
+                  animate={{ 
+                    rotate: 360,
+                    scale: [1, 1.1, 1]
+                  }}
+                  transition={{ 
+                    duration: 8, 
+                    repeat: Infinity, 
+                    ease: "linear" 
+                  }}
+                >
+                  <span className="text-white font-bold text-xl">$</span>
+                </motion.div>
+
+                <motion.div 
+                  className="absolute -bottom-4 -left-4 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg border border-[#4DC6D7]/20"
+                  animate={{ 
+                    y: [0, -8, 0],
+                    rotate: [0, -5, 0, 5, 0]
+                  }}
+                  transition={{ 
+                    duration: 4, 
+                    repeat: Infinity, 
+                    ease: "easeInOut" 
+                  }}
+                >
+                  <span className="text-[#4DC6D7] font-bold">⭐</span>
+                </motion.div>
               </div>
-              
-              {/* Calendar Grid */}
-              <motion.div 
-                className="grid grid-cols-7 gap-1 text-sm"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ amount: 0.3 }}
-                variants={{
-                  hidden: { opacity: 0 },
-                  visible: {
-                    opacity: 1,
-                    transition: {
-                      staggerChildren: 0.02
-                    }
-                  }
-                }}
-              >
-                {/* Day Headers */}
-                {['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'].map((day,) => (
-                  <motion.div 
-                    key={day} 
-                    className="text-center text-gray-500 font-medium py-2"
-                    variants={{
-                      hidden: { opacity: 0, y: 10 },
-                      visible: { opacity: 1, y: 0 }
-                    }}
-                  >
-                    {day}
-                  </motion.div>
-                ))}
-                
-                {/* Calendar Days */}
-                {Array.from({ length: 35 }, (_, i) => {
-                  const day = i - 6; // Adjust for month start
-                  const isCurrentMonth = day > 0 && day <= 30;
-                  const isToday = day === 1; // September 1st
-                  
-                  return (
-                    <motion.div
-                      key={i}
-                      className={`
-                        text-center py-2 cursor-pointer rounded
-                        ${isCurrentMonth 
-                          ? isToday 
-                            ? 'bg-[#4DC6D7] text-white font-semibold shadow-md' 
-                            : 'text-gray-800 hover:bg-gray-100'
-                          : 'text-gray-300'
-                        }
-                      `}
-                      variants={{
-                        hidden: { opacity: 0, y: 10 },
-                        visible: { opacity: 1, y: 0 }
-                      }}
-                      whileHover={isCurrentMonth ? { scale: 1.1 } : {}}
-                    >
-                      {isCurrentMonth ? day : ''}
-                    </motion.div>
-                  );
-                })}
-              </motion.div>
             </motion.div>
           </motion.div>
         </div>
