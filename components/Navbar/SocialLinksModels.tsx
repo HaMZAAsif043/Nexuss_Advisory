@@ -26,7 +26,7 @@ interface SocialLinksModelsProps {
 
 const SocialLinksModels: React.FC<SocialLinksModelsProps> = ({ setShowSocialLinks }) => {
   return (
-    <div className="min-h-screen w-full flex flex-col items-center p-6 relative overflow-hidden">
+<div className="bg-white/80 backdrop-blur-2xl rounded-2xl shadow-lg p-6 border border-white/20">
       {/* Animated Background Elements */}
       <motion.div
         className="absolute top-20 right-10 w-32 h-32 bg-gradient-to-br from-[#4DC6D7]/20 to-[#0798B1]/20 rounded-full blur-xl"
@@ -103,7 +103,7 @@ const SocialLinksModels: React.FC<SocialLinksModelsProps> = ({ setShowSocialLink
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-4 text-[#545454] hover:text-white text-lg w-full p-3 rounded-xl transition-all duration-300 hover:shadow-lg relative overflow-hidden"
+              className="group flex items-center gap-4 text-[#545454] hover:text-[#3DB1C5] text-lg w-full p-3 rounded-xl transition-all duration-300 hover:shadow-lg relative overflow-hidden"
             >
               {/* Hover Background */}
               <motion.div
@@ -190,7 +190,7 @@ const SocialLinksModels: React.FC<SocialLinksModelsProps> = ({ setShowSocialLink
         </motion.div>
       </motion.div>
     </div>
-  );
+  );  
 };
 
 export default SocialLinksModels;

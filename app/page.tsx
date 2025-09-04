@@ -5,7 +5,6 @@ import BusinessSection from '@/components/BusinessSection/BusinessSection';
 import AuditSection from '@/components/AuditSection/AuditSection';
 import ServicesGrid from '@/components/ServicesGrid/ServicesGrid';
 import ArticlesSection from '@/components/ArticlesSection/ArticlesSection';
-import ContactSection from '@/components/ContactSection/ContactSection';
 
 const Page = () => {
   return (
@@ -16,7 +15,6 @@ const Page = () => {
       <AuditSection />
       <ServicesGrid />
       <ArticlesSection />
-      <ContactSection />
     </div>
   );
 };

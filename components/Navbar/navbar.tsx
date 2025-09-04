@@ -213,7 +213,7 @@ const Navbar = () => {
                       { name: "Data & Analytics", href: "/services/analytics" }
                     ].map((service, serviceIndex) => (
                       <Link
-                        key={service.name}
+                        key={serviceIndex}
                         href={service.href}
                         onClick={() => setIsMobileMenuOpen(false)}
                         className="block py-2 px-3 text-sm text-[#545454]/80 rounded hover:bg-[#4DC6D7]/10 hover:text-[#0798B1] transition-all duration-200"
