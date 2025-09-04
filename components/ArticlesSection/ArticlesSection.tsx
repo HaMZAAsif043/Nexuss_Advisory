@@ -122,7 +122,7 @@ const ArticlesSection = () => {
         </div>
 
         {/* Newsletter Signup */}
-        <div className="bg-white rounded-lg shadow-lg p-8 text-center max-w-2xl mx-auto">
+        {/* <div className="bg-white rounded-lg shadow-lg p-8 text-center max-w-2xl mx-auto">
           <h3 className="text-2xl font-bold text-[#545454] mb-4">
             Stay Updated
           </h3>
@@ -139,7 +139,7 @@ const ArticlesSection = () => {
               Subscribe
             </button>
           </div>
-        </div>
+        </div> */}
 
         {/* View All Articles Link */}
         <div className="text-center mt-8">

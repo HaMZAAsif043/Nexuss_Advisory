@@ -53,14 +53,15 @@ const HeroSection = () => {
             </motion.div>
             
             <motion.h1 
-              className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 bg-gradient-to-r from-white via-[#4DC6D7] to-white bg-clip-text text-transparent"
+              className="text-4xl md:text-5xl lg:text-5xl font-bold leading-tight mb-6 bg-gradient-to-r from-white via-[#4DC6D7] to-white bg-clip-text text-transparent"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
               viewport={{ amount: 0.3 }}
             >
-              Plan for tomorrow,<br />
-              <span className="text-white">live for today!</span>
+              From Accounting to Finance & Investments
+<br />
+              <span className="text-white"> — We’ve Got You Covered</span>
             </motion.h1>
             
             <motion.p 

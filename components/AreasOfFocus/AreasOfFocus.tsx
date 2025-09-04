@@ -6,17 +6,22 @@ const AreasOfFocus = () => {
   const focusAreas = [
     {
       icon: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z",
-      title: "Financial Planning",
+      title: "Accounting & Compliance",
       description: "Comprehensive financial strategies tailored to your goals"
     },
     {
       icon: "M13 10V3L4 14h7v7l9-11h-7z",
-      title: "Investment Advisory", 
+      title: " Financial Services", 
       description: "Expert guidance on investment opportunities and portfolio management"
     },
     {
       icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1",
-      title: "Tax Optimization",
+      title: "Transactional Advisory",
+      description: "Strategic tax planning to maximize your financial efficiency"
+    },
+    {
+      icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1",
+      title: "Investment research & Advisory",
       description: "Strategic tax planning to maximize your financial efficiency"
     }
   ];
@@ -38,12 +43,12 @@ const AreasOfFocus = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ amount: 0.3 }}
           >
-            Areas of focus
+            Areas Of Focus
           </motion.h2>
           
           {/* Focus Areas Grid */}
           <motion.div 
-            className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto"
+            className="grid md:grid-cols-4 gap-20 max-w-4xl mx-auto"
             initial="hidden"
             whileInView="visible"
             viewport={{ amount: 0.2 }}

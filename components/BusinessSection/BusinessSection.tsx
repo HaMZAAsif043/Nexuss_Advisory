@@ -1,7 +1,7 @@
-"use client"
-import React from 'react';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
+"use client";
+import React from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
 
 const BusinessSection = () => {
   return (
@@ -15,7 +15,7 @@ const BusinessSection = () => {
             transition={{ duration: 0.8 }}
             viewport={{ amount: 0.3 }}
           >
-            <motion.h2 
+            <motion.h2
               className="text-3xl md:text-4xl font-bold text-[#545454] mb-6"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -25,18 +25,20 @@ const BusinessSection = () => {
               For businesses &<br />
               organizations
             </motion.h2>
-            <motion.p 
+            <motion.p
               className="text-[#545454]/80 mb-6 leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
               viewport={{ amount: 0.3 }}
             >
-              We provide comprehensive financial advisory services tailored specifically for businesses and organizations. 
-              Our expert team helps you navigate complex financial landscapes and make informed decisions that drive growth.
+              We provide tailored financial advisory services to help businesses
+              grow sustainably while supporting their people. From strategic
+              planning to employee benefits, we ensure your organisation stays
+              strong and future-ready.
             </motion.p>
-            
-            <motion.ul 
+
+            <motion.ul
               className="space-y-3 mb-8"
               initial="hidden"
               whileInView="visible"
@@ -45,60 +47,69 @@ const BusinessSection = () => {
                 hidden: { opacity: 0 },
                 visible: {
                   opacity: 1,
-                  transition: { staggerChildren: 0.1, delayChildren: 0.4 }
-                }
+                  transition: { staggerChildren: 0.1, delayChildren: 0.4 },
+                },
               }}
             >
               {[
-                "Strategic financial planning and analysis",
-                "Risk management and compliance", 
-                "Mergers and acquisitions advisory"
+                " Strategic financial planning & analysis",
+                "Risk management & compliance",
+                " Mergers & acquisitions advisory",
+                "Investment advisory for businesses",
+                "Employee retirement & old-age benefit programs",
               ].map((item, index) => (
-                <motion.li 
+                <motion.li
                   key={index}
                   className="flex items-center text-[#545454]/90"
                   variants={{
                     hidden: { opacity: 0, x: -20 },
-                    visible: { opacity: 1, x: 0 }
+                    visible: { opacity: 1, x: 0 },
                   }}
                 >
-                  <motion.svg 
-                    className="w-5 h-5 text-[#4DC6D7] mr-3" 
-                    fill="none" 
-                    stroke="currentColor" 
+                  <motion.svg
+                    className="w-5 h-5 text-[#4DC6D7] mr-3"
+                    fill="none"
+                    stroke="currentColor"
                     viewBox="0 0 24 24"
                     whileHover={{ scale: 1.2, rotate: 360 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M5 13l4 4L19 7"
+                    />
                   </motion.svg>
                   {item}
                 </motion.li>
               ))}
             </motion.ul>
-            
-            <motion.button 
-              className="bg-[#4DC6D7] hover:bg-[#3bb5c6] text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              viewport={{ amount: 0.3 }}
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Learn More
-            </motion.button>
+
+               <div className="flex flex-col sm:flex-row gap-4">
+                        <motion.button 
+                          className="border border-[#4DC6D7] text-[#4DC6D7] hover:bg-[#4DC6D7] hover:text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300"
+                          initial={{ opacity: 0, y: 20 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.8, delay: 0.7 }}
+                          viewport={{ amount: 0.3 }}
+                          whileHover={{ scale: 1.05, y: -2 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          Free Consultation
+                        </motion.button>
+                      </div>
           </motion.div>
 
           {/* Right Content - Image */}
-          <motion.div 
+          <motion.div
             className="relative"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ amount: 0.3 }}
           >
-            <motion.div 
+            <motion.div
               className="relative h-96 lg:h-[500px] rounded-lg overflow-hidden shadow-xl"
               whileHover={{ scale: 1.02, y: -5 }}
               transition={{ duration: 0.3 }}
@@ -111,9 +122,9 @@ const BusinessSection = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent"></div>
             </motion.div>
-            
+
             {/* Floating Stats Card */}
-            <motion.div 
+            <motion.div
               className="absolute -bottom-6 -left-6 bg-white rounded-lg shadow-xl p-6 max-w-xs"
               initial={{ opacity: 0, y: 20, scale: 0.8 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -122,7 +133,7 @@ const BusinessSection = () => {
               whileHover={{ scale: 1.05, y: -5 }}
             >
               <div className="text-center">
-                <motion.div 
+                <motion.div
                   className="text-3xl font-bold text-[#4DC6D7]"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
@@ -131,7 +142,9 @@ const BusinessSection = () => {
                 >
                   500+
                 </motion.div>
-                <div className="text-[#545454]/80 text-sm">Businesses Served</div>
+                <div className="text-[#545454]/80 text-sm">
+                  Businesses Served
+                </div>
               </div>
             </motion.div>
           </motion.div>

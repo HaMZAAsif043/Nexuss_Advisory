@@ -4,6 +4,7 @@ import { Merriweather, Inter } from "next/font/google"; // ✅ Replace with bett
 import "./globals.css";
 import Navbar from "@/components/Navbar/navbar";
 import Footer from "@/components/Footer/Footer";
+import Chatbot from "@/components/Chatbot/Chatbot";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,8 +33,8 @@ export const metadata: Metadata = {
   description:
     "Nexuss Advisory provides expert financial advisory services, helping businesses and individuals achieve sustainable growth, smarter investments, and long-term success.",
   icons: [
-    { rel: "icon", url: "/logo.jpg" },
-    { rel: "apple-touch-icon", url: "/logo.jpg" },
+    { rel: "icon", url: "/logo.png" },
+    { rel: "apple-touch-icon", url: "/logo.png" },
   ],
   openGraph: {
     title: "Nexuss Advisory",
@@ -43,7 +44,7 @@ export const metadata: Metadata = {
     siteName: "Nexuss Advisory",
     images: [
       {
-        url: "/logo.jpg", 
+        url: "/logo.png", 
         width: 1200,
         height: 630,
         alt: "Nexuss Advisory Logo",
@@ -70,6 +71,7 @@ export default function RootLayout({
         <footer>
           <Footer />
         </footer>
+        <Chatbot />
       </body>
     </html>
   );

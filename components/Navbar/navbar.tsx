@@ -31,22 +31,27 @@ const Navbar = () => {
       
       <div className="relative z-10 container mx-auto flex items-center justify-between overflow-visible">
         {/* Logo */}
-        <Link href={"/"} className="group flex items-center gap-3">
-          <motion.div
-            whileHover={{ scale: 1.05, rotate: 2 }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ duration: 0.2 }}
-          >
-            <Image 
-              src="/logo.jpg" 
-              alt="Nexuss Advisory Logo" 
-              width={120} 
-              height={120} 
-              className="rounded-lg shadow-md group-hover:shadow-xl transition-shadow duration-300"
-            />
-          </motion.div>
-        </Link>
-        
+       <Link href={"/"} className="group flex items-center gap-3">
+  <motion.div
+    whileHover={{ scale: 1.08, rotate: 5 }}
+    whileTap={{ scale: 0.92 }}
+    transition={{ duration: 0.3, ease: "easeOut" }}
+    className="relative"
+  >
+    <Image 
+      src="/logo.png"
+      alt="Nexuss Advisory Logo" 
+      width={120} 
+      height={120} 
+      className="object-contain drop-shadow-md group-hover:drop-shadow-2xl transition-all duration-300 filter group-hover:brightness-110"
+      style={{ 
+        background: 'transparent',
+        filter: 'drop-shadow(0 4px 8px rgba(77, 198, 215, 0.3)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1))'
+      }}
+      priority
+    />
+  </motion.div>
+</Link>
         {/* Desktop Navigation */}
         <ul className="hidden lg:flex items-center overflow-visible">
           {navLinks.slice(0, 2).map((link) => (
@@ -274,7 +279,7 @@ const Navbar = () => {
       animate={{ y: "0%", opacity: 1, scale: 1 }}
       exit={{ y: "-100%", opacity: 0, scale: 0.95 }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
-      className="fixed top-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-gradient-to-br from-white via-[#4DC6D7]/5 to-white backdrop-blur-xl p-5 rounded-b-2xl shadow-2xl z-50 border-b border-[#4DC6D7]/20"
+      className="fixed top-0 left-1/2 hidden sm:block -translate-x-1/2 w-full h-1/2 bg-gradient-to-br from-white via-[#4DC6D7]/5 to-white backdrop-blur-xl p-5 rounded-b-2xl shadow-2xl z-50 border-b border-[#4DC6D7]/20"
       onClick={(e) => e.stopPropagation()}
     >
         <SearchBar setShowSearchBar={setShowSearchBar}/>
