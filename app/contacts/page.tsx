@@ -1,7 +1,7 @@
 "use client"
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Mail, Send, User, MessageSquare, Twitter, Linkedin, Facebook, Instagram, Share2 } from 'lucide-react';
+import {  Phone, Mail, Send, User, MessageSquare, Twitter, Linkedin, Facebook, Instagram, Share2 } from 'lucide-react';
 
 // Import custom WhatsApp icon
 const WhatsAppIcon = () => (
@@ -58,8 +58,8 @@ const ContactPage = () => {
                 Let&apos;s Talk Business
               </h2>
               <p className="text-[#545454]/80 mb-12 text-lg leading-relaxed">
-                We&apos;re here to help you achieve your financial goals. Whether you need investment advice, 
-                business consulting, or comprehensive financial planning, our team of experts is ready to assist you.
+             We&apos;re here to help you achieve your financial goals. Whether you need investment advice, business consulting, or comprehensive financial planning, our team of experts is ready to assist you.
+With Nexuss Advisory, you don’t just get services — you get a partner invested in your success.
               </p>
 
               {/* Contact Cards */}
@@ -343,7 +343,7 @@ const ContactPage = () => {
       </section>
 
       {/* Map Section */}
-      <motion.section 
+      {/* <motion.section 
         className="py-16 bg-[#545454]/5"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -374,7 +374,7 @@ const ContactPage = () => {
             </div>
           </motion.div>
         </div>
-      </motion.section>
+      </motion.section> */}
     </div>
   );
 };

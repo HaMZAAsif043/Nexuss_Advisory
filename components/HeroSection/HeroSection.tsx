@@ -2,6 +2,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import SwipeableText from './SwipeableText';
 
 const HeroSection = () => {
   return (
@@ -9,7 +10,7 @@ const HeroSection = () => {
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
-          src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+          src="/image copy.png"
           alt="Hero Background - Professional Business Meeting"
           fill
           className="object-cover opacity-30"
@@ -42,27 +43,25 @@ const HeroSection = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ amount: 0.3 }}
           >
-            <motion.div
-              className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-[#4DC6D7] font-semibold mb-6 border border-white/20"
+            {/* <motion.div
+              className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white font-semibold mb-6 border border-white/20"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ amount: 0.3 }}
             >
-              🌟 Financial Excellence Redefined
-            </motion.div>
+              Financial Excellence Redefined
+            </motion.div> */}
             
-            <motion.h1 
-              className="text-4xl md:text-5xl lg:text-5xl font-bold leading-tight mb-6 bg-gradient-to-r from-white via-[#4DC6D7] to-white bg-clip-text text-transparent"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-              viewport={{ amount: 0.3 }}
-            >
-              From Accounting to Finance & Investments
-<br />
-              <span className="text-white"> — We’ve Got You Covered</span>
-            </motion.h1>
+            <div className="text-4xl md:text-5xl lg:text-5xl font-bold leading-tight mb-6">
+              <SwipeableText 
+                texts={[
+                  "Where Financial Expertise Meets Strategic Innovation",
+                  "Navigate the complexities of modern business with confidence."
+                ]}
+                className="bg-gradient-to-r from-white to-white bg-clip-text text-transparent min-h-[120px]"
+              />
+            </div>
             
             <motion.p 
               className="text-lg md:text-xl mb-8 text-white/90 leading-relaxed"
@@ -71,9 +70,7 @@ const HeroSection = () => {
               transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
               viewport={{ amount: 0.3 }}
             >
-              Professional financial advisory services to help you secure your future while enjoying the present. 
-              Experience growth, security, and prosperity with our expert guidance.
-            </motion.p>
+Nexuss Advisory provides a full suite of tailored financial services designed to meet the evolving needs of Individuals and businesses globally. At Nexuss Advisory, we believe finance is more than numbers — it’s about empowering people and businesses to make confident decisions and achieve lasting growth.            </motion.p>
             
             <motion.div 
               className="flex flex-col sm:flex-row gap-4 mb-8"
@@ -101,27 +98,27 @@ const HeroSection = () => {
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <span className="group-hover:text-[#545454]">Learn More</span>
+                <span className="group-hover:text-[#545454]">Explore Our Services</span>
               </motion.button>
             </motion.div>
 
             {/* Trust Indicators */}
-            <motion.div
+            {/* <motion.div
               className="flex items-center space-x-6 text-white/80"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
               viewport={{ amount: 0.3 }}
-            >
-              <div className="flex items-center space-x-2">
+            > */}
+              {/* <div className="flex items-center space-x-2">
                 <div className="w-3 h-3 bg-[#4DC6D7] rounded-full animate-pulse"></div>
                 <span className="text-sm font-medium">500+ Happy Clients</span>
               </div>
               <div className="flex items-center space-x-2">
                 <div className="w-3 h-3 bg-[#4DC6D7] rounded-full animate-pulse" style={{ animationDelay: "0.5s" }}></div>
                 <span className="text-sm font-medium">15+ Years Experience</span>
-              </div>
-            </motion.div>
+              </div> */}
+            {/* </motion.div> */}
           </motion.div>
 
           {/* Right Content - Enhanced Visual Element */}

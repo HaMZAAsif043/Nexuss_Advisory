@@ -124,7 +124,6 @@ I can provide information about our services:
 
   return (
     <>
-      {/* Enhanced Floating Chat Button */}
       <AnimatePresence>
         {!isOpen && (
           <motion.div
@@ -175,7 +174,7 @@ I can provide information about our services:
             }}
             exit={{ opacity: 0, y: 100, scale: 0.8 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="fixed bottom-6 right-6 z-50 w-96 bg-white rounded-2xl shadow-2xl overflow-hidden border border-[#4DC6D7]/30 backdrop-blur-sm flex flex-col"
+            className="fixed h-screen bottom-6 right-6 z-50 w-96 bg-white rounded-2xl shadow-2xl overflow-hidden border border-[#4DC6D7]/30 backdrop-blur-sm flex flex-col"
           >
             {/* Enhanced Header */}
             <div className="bg-gradient-to-r from-[#4DC6D7] via-[#3bb5c6] to-[#545454] p-4 text-white relative overflow-hidden">
@@ -194,7 +193,7 @@ I can provide information about our services:
                     <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-white animate-pulse"></div>
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg">Nexuss AI Assistant</h3>
+                    <h3 className="font-bold text-lg">Maddy</h3>
                     <div className="flex items-center space-x-1">
                       <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
                       <p className="text-white/90 text-sm">Online • Ready to help</p>

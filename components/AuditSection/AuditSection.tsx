@@ -35,7 +35,7 @@ const AuditSection = () => {
           <div className="relative order-2 lg:order-1">
             <div className="relative h-96 lg:h-[500px] rounded-lg overflow-hidden shadow-xl">
               <Image
-                src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                src="/image copy 2.png"
                 alt="Audit Analysis - Financial Documents"
                 fill
                 className="object-cover"
@@ -44,7 +44,7 @@ const AuditSection = () => {
             </div>
             
             {/* Floating Info Card */}
-            <motion.div 
+            {/* <motion.div 
               className="absolute -top-6 -right-6 bg-white rounded-lg shadow-xl p-6 max-w-xs"
               initial={{ opacity: 0, scale: 0.8, y: 20 }}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
@@ -63,7 +63,7 @@ const AuditSection = () => {
                   <div className="text-xs text-[#545454]/80">98% Resolution Rate</div>
                 </div>
               </div>
-            </motion.div>
+            </motion.div> */}
           </div>
 
           {/* Right Content */}

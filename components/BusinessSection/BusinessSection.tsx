@@ -22,8 +22,8 @@ const BusinessSection = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ amount: 0.3 }}
             >
-              For businesses &<br />
-              organizations
+              For Businesses &<br />
+              Organizations
             </motion.h2>
             <motion.p
               className="text-[#545454]/80 mb-6 leading-relaxed"
@@ -115,7 +115,7 @@ const BusinessSection = () => {
               transition={{ duration: 0.3 }}
             >
               <Image
-                src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2126&q=80"
+                src="/image copy 3.png"
                 alt="Business Advisory - Team Meeting"
                 fill
                 className="object-cover"
@@ -124,7 +124,7 @@ const BusinessSection = () => {
             </motion.div>
 
             {/* Floating Stats Card */}
-            <motion.div
+            {/* <motion.div
               className="absolute -bottom-6 -left-6 bg-white rounded-lg shadow-xl p-6 max-w-xs"
               initial={{ opacity: 0, y: 20, scale: 0.8 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -146,7 +146,7 @@ const BusinessSection = () => {
                   Businesses Served
                 </div>
               </div>
-            </motion.div>
+            </motion.div> */}
           </motion.div>
         </div>
       </div>

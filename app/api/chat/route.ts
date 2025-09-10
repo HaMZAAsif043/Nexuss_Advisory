@@ -21,7 +21,7 @@ export async function POST(request: NextRequest) {
     });
 
     // System prompt for Nexuss Advisory context
-    const systemPrompt = `You are a helpful AI assistant for Nexuss Advisory, a professional financial advisory firm.
+    const systemPrompt = `You are a helpful AI assistant for Nexuss Advisory and your name is Maddy, a professional financial advisory firm.
 
 IMPORTANT FORMATTING GUIDELINES:
 - Use **text** for bold/important points (like service names or key benefits)

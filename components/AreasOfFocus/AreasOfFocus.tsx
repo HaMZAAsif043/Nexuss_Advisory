@@ -1,28 +1,33 @@
 "use client"
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Calculator, TrendingUp, BarChart3, Handshake } from 'lucide-react';
 
 const AreasOfFocus = () => {
   const focusAreas = [
     {
-      icon: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z",
+      icon: Calculator,
       title: "Accounting & Compliance",
-      description: "Comprehensive financial strategies tailored to your goals"
+      description: "Comprehensive financial strategies tailored to your goals",
+      color: '#4DC6D7'
     },
     {
-      icon: "M13 10V3L4 14h7v7l9-11h-7z",
+      icon:TrendingUp,
       title: " Financial Services", 
-      description: "Expert guidance on investment opportunities and portfolio management"
+      description: "Expert guidance on investment opportunities and portfolio management",
+      color: '#545454' 
     },
     {
-      icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1",
+      icon: BarChart3,
       title: "Transactional Advisory",
-      description: "Strategic tax planning to maximize your financial efficiency"
+      description: "Strategic tax planning to maximize your financial efficiency",
+      color: '#4DC6D7' 
     },
     {
-      icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1",
+      icon: Handshake,
       title: "Investment research & Advisory",
-      description: "Strategic tax planning to maximize your financial efficiency"
+      description: "Strategic tax planning to maximize your financial efficiency",
+       color: '#545454'
     }
   ];
 
@@ -75,9 +80,8 @@ const AreasOfFocus = () => {
                   className="w-16 h-16 bg-[#4DC6D7]/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-[#4DC6D7]/20 transition-all duration-300"
                   whileHover={{ scale: 1.1, rotate: 5 }}
                 >
-                  <svg className="w-8 h-8 text-[#4DC6D7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={area.icon} />
-                  </svg>
+                  <area.icon  className="w-7 h-7 mb-1" 
+                          style={{ color: area.color }} />
                 </motion.div>
                 <h3 className="text-xl font-semibold text-[#545454] mb-2 group-hover:text-[#4DC6D7] transition-colors duration-300">
                   {area.title}

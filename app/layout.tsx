@@ -62,16 +62,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${merriw.variable} ${inter.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${merriw.variable} ${inter.variable} antialiased overflow-x-hidden`}
       >
         <header className="relative z-50">
           <Navbar />
         </header>
         <main>{children}</main>
-        <footer>
+        <Chatbot />
+           <footer>
           <Footer />
         </footer>
-        <Chatbot />
       </body>
     </html>
   );

@@ -2,15 +2,15 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { Users, Target, Award, TrendingUp, Briefcase, Heart, Shield, Globe } from 'lucide-react';
+import {  Target, Heart, Shield, Globe } from 'lucide-react';
 
 const AboutPage = () => {
-  const stats = [
-    { number: "500+", label: "Happy Clients", icon: Users },
-    { number: "15+", label: "Years Experience", icon: Award },
-    { number: "$2B+", label: "Assets Managed", icon: TrendingUp },
-    { number: "50+", label: "Expert Advisors", icon: Briefcase }
-  ];
+  // const stats = [
+  //   { number: "500+", label: "Happy Clients", icon: Users },
+  //   { number: "15+", label: "Years Experience", icon: Award },
+  //   { number: "$2B+", label: "Assets Managed", icon: TrendingUp },
+  //   { number: "50+", label: "Expert Advisors", icon: Briefcase }
+  // ];
 
   const values = [
     {
@@ -37,10 +37,10 @@ const AboutPage = () => {
 
   const team = [
     {
-      name: "Sarah Johnson",
-      position: "Chief Executive Officer",
+      name: "Madiha Asif",
+      position: "Founder & CEO",
       image: "https://images.unsplash.com/photo-1494790108755-2616b612b977?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
-      description: "15+ years of experience in financial planning and investment management."
+      description: "10+ years of experience in financial planning and investment management."
     },
     {
       name: "Michael Chen",
@@ -120,7 +120,7 @@ const AboutPage = () => {
       </motion.section>
 
       {/* Stats Section */}
-      <section className="py-16">
+      {/* <section className="py-16">
         <div className="container mx-auto px-4">
           <motion.div 
             className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
@@ -148,7 +148,7 @@ const AboutPage = () => {
             ))}
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* Our Story Section */}
       <section className="py-16 bg-[#4DC6D7]">
