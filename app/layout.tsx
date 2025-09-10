@@ -51,8 +51,8 @@ export const metadata: Metadata = {
     ],
     type: "website",
   },
-  other: {
-    "google-site-verification": "vCXnEsE_6moL2jHRPP-JkNhwHHNDfrbgc0K3o1A-knA",
+  verification: {
+    google: "vCXnEsE_6moL2jHRPP-JkNhwHHNDfrbgc0K3o1A-knA",
   },
 };
 
