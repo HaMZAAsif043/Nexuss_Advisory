@@ -27,7 +27,6 @@ const inter = Inter({
   weight: ["400", "500", "600"],
   variable: "--font-inter",
 });
-
 export const metadata: Metadata = {
   title: "Nexuss Advisory",
   description:
@@ -40,11 +39,11 @@ export const metadata: Metadata = {
     title: "Nexuss Advisory",
     description:
       "Trusted financial advisory services for businesses and individuals.",
-    url: "https://nexussadvisory.com", 
+    url: "https://nexussadvisory.com",
     siteName: "Nexuss Advisory",
     images: [
       {
-        url: "/logo.png", 
+        url: "/logo.png",
         width: 1200,
         height: 630,
         alt: "Nexuss Advisory Logo",
@@ -52,7 +51,11 @@ export const metadata: Metadata = {
     ],
     type: "website",
   },
+  other: {
+    "google-site-verification": "vCXnEsE_6moL2jHRPP-JkNhwHHNDfrbgc0K3o1A-knA",
+  },
 };
+
 
 export default function RootLayout({
   children,
