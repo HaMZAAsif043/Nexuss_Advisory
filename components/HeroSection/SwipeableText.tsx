@@ -1,6 +1,6 @@
-"use client"
-import { motion } from 'framer-motion';
-import { useState } from 'react';
+"use client";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 
 interface SwipeableTextProps {
   texts: string[];
@@ -9,27 +9,41 @@ interface SwipeableTextProps {
 
 const SwipeableText = ({ texts, className = "" }: SwipeableTextProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
 
   const nextText = () => {
+    setDirection(1);
     setCurrentIndex((prev) => (prev + 1) % texts.length);
   };
 
   const prevText = () => {
+    setDirection(-1);
     setCurrentIndex((prev) => (prev - 1 + texts.length) % texts.length);
   };
 
   return (
     <div className="relative">
-      <div className={`overflow-hidden ${className}`}>
-        <motion.div
-          key={currentIndex}
-          animate={{ y: 0 }}
-          transition={{ duration: 0.8, ease: "easeInOut" }}
-        >
-          {texts[currentIndex]}
-        </motion.div>
+      <div className={`relative overflow-hidden ${className}`} style={{ height: "100px" }}>
+        <AnimatePresence initial={false} custom={direction}>
+          <motion.div
+            key={currentIndex}
+            custom={direction}
+            variants={{
+              enter: (dir: number) => ({ x: dir > 0 ? 300 : -300, opacity: 0 }),
+              center: { x: 0, opacity: 1 },
+              exit: (dir: number) => ({ x: dir > 0 ? -300 : 300, opacity: 0 }),
+            }}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{ type: "tween", duration: 0.5 }}
+            className="absolute inset-0 flex items-center justify-center"
+          >
+            {texts[currentIndex]}
+          </motion.div>
+        </AnimatePresence>
       </div>
-      
+
       <div className="absolute top-0 right-0 flex gap-2">
         <motion.button
           onClick={prevText}
