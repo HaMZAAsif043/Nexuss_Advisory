@@ -2,9 +2,9 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import BlogList from '@/components/Blog/BlogList';
-import BlogForm from '@/components/Blog/BlogForm';
+// import BlogForm from '@/components/Blog/BlogForm';
 import BlogDetail from '@/components/Blog/BlogDetail';
-import { Plus} from 'lucide-react';
+// import { Plus} from 'lucide-react';
 
 export interface BlogPost {
   id: string;
@@ -155,9 +155,9 @@ The future of accounting lies in the intelligent automation of routine tasks, al
 ];
 
 const BlogPage = () => {
-  const [posts, setPosts] = useState<BlogPost[]>(initialPosts);
+  const [posts] = useState<BlogPost[]>(initialPosts);
   const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
-  const [showForm, setShowForm] = useState(false);
+  // const [showForm, setShowForm] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 6;
 
@@ -166,15 +166,15 @@ const BlogPage = () => {
   const startIndex = (currentPage - 1) * postsPerPage;
   const currentPosts = posts.slice(startIndex, startIndex + postsPerPage);
 
-  const handleAddPost = (newPost: Omit<BlogPost, 'id' | 'date'>) => {
-    const post: BlogPost = {
-      ...newPost,
-      id: Date.now().toString(),
-      date: new Date().toISOString().split('T')[0]
-    };
-    setPosts([post, ...posts]);
-    setShowForm(false);
-  };
+  // const handleAddPost = (newPost: Omit<BlogPost, 'id' | 'date'>) => {
+  //   const post: BlogPost = {
+  //     ...newPost,
+  //     id: Date.now().toString(),
+  //     date: new Date().toISOString().split('T')[0]
+  //   };
+  //   setPosts([post, ...posts]);
+  //   // setShowForm(false);
+  // };
 
   const handlePostClick = (post: BlogPost) => {
     setSelectedPost(post);
@@ -184,12 +184,12 @@ const BlogPage = () => {
     setSelectedPost(null);
   };
 
-  const handleCloseForm = () => {
-    setShowForm(false);
-  };
+  // const handleCloseForm = () => {
+  //   setShowForm(false);
+  // };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
+    <div className="min-h-screen z-60 bg-gradient-to-br from-gray-50 to-white">
       {/* Header */}
       <section className="relative py-16 bg-gradient-to-r from-[#4DC6D7] to-[#0798B1] text-white">
         <div className="container mx-auto px-4">
@@ -205,15 +205,15 @@ const BlogPage = () => {
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
               Insights, expertise, and industry knowledge from our financial experts
             </p>
-            <motion.button
-              onClick={() => setShowForm(true)}
+            {/* <motion.button
+              // onClick={() => setShowForm(true)}
               className="bg-white text-[#0798B1] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300 flex items-center space-x-2 mx-auto"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               <Plus className="w-5 h-5" />
               <span>Write New Post</span>
-            </motion.button>
+            </motion.button> */}
           </motion.div>
         </div>
       </section>
@@ -240,14 +240,17 @@ const BlogPage = () => {
       </AnimatePresence>
 
       {/* Blog Form Modal */}
-      <AnimatePresence>
+      {/* <AnimatePresence>
         {showForm && (
-          <BlogForm
-            onSubmit={handleAddPost}
-            onClose={handleCloseForm}
-          />
+          <div className="fixed inset-0 z-[9999] flex items-center justify-center">
+            <BlogForm
+              onSubmit={handleAddPost}
+              onClose={handleCloseForm}
+            />
+          </div>
         )}
-      </AnimatePresence>
+      </AnimatePresence> */}
+
     </div>
   );
 };

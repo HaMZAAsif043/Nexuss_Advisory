@@ -23,11 +23,11 @@ const Navbar = () => {
     { name: "Contacts", href: "/contacts" },
   ];
   return (
-    <nav className="relative p-3 bg-white/95 backdrop-blur-lg border-b border-[#4DC6D7]/20 shadow-lg flex items-center justify-between overflow-visible z-50" onClick={()=>ShowSocialLinks && setShowSocialLinks(false)}>
+    <nav className="relative p-3 bg-white/95 backdrop-blur-lg border-b border-[#4DC6D7]/20 shadow-lg flex items-center justify-between overflow-visible" onClick={()=>ShowSocialLinks && setShowSocialLinks(false)}>
       {/* Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-r from-white via-[#4DC6D7]/5 to-white opacity-50"></div>
       
-      <div className="relative z-10 container mx-auto flex items-center justify-between overflow-visible">
+      <div className="relative container mx-auto flex items-center justify-between overflow-visible">
         {/* Logo */}
        <Link href={"/"} className="group flex items-center gap-3">
   <motion.div
@@ -164,7 +164,7 @@ const Navbar = () => {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="absolute top-full left-0 right-0 bg-white/95 backdrop-blur-lg border-b border-[#4DC6D7]/20 shadow-xl lg:hidden z-40"
+            className="absolute top-full left-0 right-0 bg-white/95 backdrop-blur-lg border-b border-[#4DC6D7]/20 shadow-xl lg:hidden"
           >
             <div className="container mx-auto px-4 py-6">
               <motion.div 
@@ -277,7 +277,7 @@ const Navbar = () => {
       animate={{ y: "0%", opacity: 1, scale: 1 }}
       exit={{ y: "-100%", opacity: 0, scale: 0.95 }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
-      className="fixed top-0 left-1/2 hidden sm:block -translate-x-1/2 w-full h-1/2 bg-gradient-to-br from-white via-[#4DC6D7]/5 to-white backdrop-blur-xl p-5 rounded-b-2xl shadow-2xl z-50 border-b border-[#4DC6D7]/20"
+      className="fixed top-0 left-1/2 hidden sm:block -translate-x-1/2 w-full h-1/2 bg-gradient-to-br from-white via-[#4DC6D7]/5 to-white backdrop-blur-xl p-5 rounded-b-2xl shadow-2xl  border-b border-[#4DC6D7]/20"
       onClick={(e) => e.stopPropagation()}
     >
         <SearchBar setShowSearchBar={setShowSearchBar}/>
@@ -291,7 +291,7 @@ const Navbar = () => {
       animate={{ x: 0, opacity: 1 }}
       exit={{ x: "100%", opacity: 0 }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
-      className="fixed top-0 right-0 h-full w-1/3 bg-gradient-to-br from-[#4DC6D7]/10 via-white to-[#0798B1]/5 backdrop-blur-xl p-5 shadow-2xl z-50 border-l border-[#4DC6D7]/20"
+      className="fixed top-0 right-0 h-full w-1/3 bg-gradient-to-br from-[#4DC6D7]/10 via-white to-[#0798B1]/5 backdrop-blur-xl p-5 shadow-2xl  border-l border-[#4DC6D7]/20"
       onClick={(e) => e.stopPropagation()}
     >
       <SocialLinksModels setShowSocialLinks={setShowSocialLinks} />

@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import {
   Calculator,
   ChartNoAxesCombined,
-  BarChart3,
   ChartCandlestick,
   LaptopMinimalCheck,
   Handshake

@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 
 const merriw = Merriweather({
   subsets: ["latin"],
-  weight: ["400", "700"], // ✅ strong headings
+  weight: ["400", "700"],
   variable: "--font-merriweather",
 });
 
@@ -29,23 +29,22 @@ const inter = Inter({
   variable: "--font-inter",
 });
 export const metadata: Metadata = {
-  metadataBase: new URL("https://nexussadvisory.com"),
+  metadataBase: new URL("https://www.nexussadvisory.com"),
   title: "Nexuss Advisory",
   description:
     "Nexuss Advisory provides expert financial advisory services, helping businesses and individuals achieve sustainable growth, smarter investments, and long-term success.",
   icons: {
-    icon: [
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon.ico" },
-    ],
-    apple: "/apple-touch-icon.png",
+    icon:"/favicon-32x32.png"
+      // { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      // { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    //   { url: "/favicon.ico" },
+    // apple: "/apple-touch-icon.png",
   },
   openGraph: {
     title: "Nexuss Advisory",
     description:
       "Trusted financial advisory services for businesses and individuals.",
-    url: "https://nexussadvisory.com",
+    url: "https://www.nexussadvisory.com",
     siteName: "Nexuss Advisory",
     images: [
       {
