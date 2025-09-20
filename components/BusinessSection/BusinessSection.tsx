@@ -22,8 +22,7 @@ const BusinessSection = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ amount: 0.3 }}
             >
-              For Businesses &<br />
-              Organizations
+              Corporate Solutions
             </motion.h2>
             <motion.p
               className="text-[#545454]/80 mb-6 leading-relaxed"
@@ -32,10 +31,10 @@ const BusinessSection = () => {
               transition={{ duration: 0.8, delay: 0.3 }}
               viewport={{ amount: 0.3 }}
             >
-              We provide tailored financial advisory services to help businesses
-              grow sustainably while supporting their people. From strategic
-              planning to employee benefits, we ensure your organisation stays
-              strong and future-ready.
+              We deliver tailored financial advisory services that drive
+              sustainable growth while supporting your people. From strategic
+              planning to employee benefit programs, we help your organization
+              stay resilient, compliant, and future-ready.
             </motion.p>
 
             <motion.ul
@@ -52,11 +51,13 @@ const BusinessSection = () => {
               }}
             >
               {[
-                " Strategic financial planning & analysis",
-                "Risk management & compliance",
-                " Mergers & acquisitions advisory",
-                "Investment advisory for businesses",
-                "Employee retirement & old-age benefit programs",
+                "Strategic Financial Planning & Performance Analysis",
+                "Risk Management & Regulatory Compliance",
+                "Accounting, Reporting & IFRS/GAAP Support",
+                "Mergers, Acquisitions & Restructuring Advisory",
+                "Corporate Investment & Capital Advisory",
+                "Employee Retirement & Benefit Program Design",
+                "Data-Driven Insights & Analytics for Smarter Decisions",
               ].map((item, index) => (
                 <motion.li
                   key={index}
@@ -86,19 +87,19 @@ const BusinessSection = () => {
               ))}
             </motion.ul>
 
-               <div className="flex flex-col sm:flex-row gap-4">
-                        <motion.button 
-                          className="border border-[#4DC6D7] text-[#4DC6D7] hover:bg-[#4DC6D7] hover:text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300"
-                          initial={{ opacity: 0, y: 20 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.8, delay: 0.7 }}
-                          viewport={{ amount: 0.3 }}
-                          whileHover={{ scale: 1.05, y: -2 }}
-                          whileTap={{ scale: 0.95 }}
-                        >
-                          Free Consultation
-                        </motion.button>
-                      </div>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <motion.button
+                className="border border-[#4DC6D7] text-[#4DC6D7] hover:bg-[#4DC6D7] hover:text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.7 }}
+                viewport={{ amount: 0.3 }}
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Free Consultation
+              </motion.button>
+            </div>
           </motion.div>
 
           {/* Right Content - Image */}

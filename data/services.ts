@@ -1,9 +1,11 @@
 // Services Data for Nexuss Advisory
+import { LucideIcon, Calculator, DollarSign, Handshake, TrendingUp, BarChart3 } from 'lucide-react';
+
 export interface Service {
   id: string;
   title: string;
   description: string;
-  icon: string;
+  icon: LucideIcon;
   color: string;
   image: string;
   overview: string;
@@ -33,7 +35,7 @@ export const services: Service[] = [
     id: 'accounting',
     title: 'Accounting & Compliance',
     description: 'Comprehensive accounting solutions to keep your business finances organized and compliant.',
-    icon: '📊',
+    icon: Calculator,
     color: '#4DC6D7',
     image: '/services/accounting.jpg',
     overview: 'Our accounting and compliance services provide the foundation for your business\'s financial success. We ensure accuracy, compliance, and strategic insights to drive your growth.',
@@ -107,7 +109,7 @@ export const services: Service[] = [
     id: 'financial',
     title: 'Financial Services',
     description: 'Strategic financial planning and management services to optimize your business performance.',
-    icon: '💰',
+    icon: DollarSign,
     color: '#2D5AA0',
     image: '/services/financial.jpg',
     overview: 'Our financial services help you make informed decisions about your business\'s financial future through strategic planning, analysis, and optimization.',
@@ -179,7 +181,7 @@ export const services: Service[] = [
     id: 'transactional',
     title: 'Transactional Advisory',
     description: 'Expert advisory services for mergers, acquisitions, and complex business transactions.',
-    icon: '🤝',
+    icon: Handshake,
     color: '#FF6B35',
     image: '/services/business.jpg',
     overview: 'Our transactional advisory services help companies navigate complex deals, from M&A to restructuring, ensuring optimal outcomes for all stakeholders.',
@@ -209,7 +211,7 @@ export const services: Service[] = [
     id: 'investment',
     title: 'Investment Research & Advisory',
     description: 'Professional investment research and analysis services for informed decision making.',
-    icon: '📈',
+    icon: TrendingUp,
     color: '#7B68EE',
     image: '/services/investment.jpg',
     overview: 'Our investment research services provide comprehensive analysis and insights to support your investment decisions and portfolio management strategies.',
@@ -239,7 +241,7 @@ export const services: Service[] = [
     id: 'analytics',
     title: 'Data-Driven Insights & Analytics',
     description: 'Advanced analytics and business intelligence solutions for data-driven decision making.',
-    icon: '📊',
+    icon: BarChart3,
     color: '#20B2AA',
     image: '/services/financial.jpg',
     overview: 'Our data analytics services transform your business data into actionable insights through advanced analytics, dashboards, and predictive modeling.',

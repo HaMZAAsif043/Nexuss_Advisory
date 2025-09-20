@@ -1,217 +1,118 @@
 "use client"
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronRight, ArrowRight, Star, Users, Clock, Award } from 'lucide-react';
-import Image from 'next/image';
+import { ArrowRight, Star, Users, Clock, Award } from 'lucide-react';
 import Link from 'next/link';
-
-interface SubService {
-  name: string;
-  description: string;
-  href: string;
-}
-
-interface Service {
-  title: string;
-  subServices: SubService[];
-  color: string;
-  icon: React.ReactNode | string;
-  description: string;
-  image: string;
-  features: string[];
-}
+import { services } from '@/data/services';
 
 const ServicesPage = () => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
-  const services: Service[] = [
-    {
-      title: "Accounting & BookKeeping",
-      color: "#4DC6D7",
-      icon: "📊",
-      description: "Comprehensive accounting solutions to keep your finances organized and compliant.",
-      image: "/services/accounting.jpg",
-      features: ["Real-time reporting", "Tax compliance", "Automated processes", "Expert support"],
-      subServices: [
-        { 
-          name: "QuickBooks Setup", 
-          description: "Professional QuickBooks implementation and management for seamless accounting.",
-          href: "/services/accounting/quickbooks"
-        },
-        { 
-          name: "Accounts Payable", 
-          description: "Streamlined vendor payment processing and expense management systems.",
-          href: "/services/accounting/payable"
-        },
-        { 
-          name: "Accounts Receivable", 
-          description: "Efficient customer billing and payment collection processes.",
-          href: "/services/accounting/receivable"
-        },
-        { 
-          name: "Tax Management", 
-          description: "Comprehensive tax preparation, planning, and compliance services.",
-          href: "/services/accounting/tax"
-        },
-        { 
-          name: "Payroll Management", 
-          description: "Complete payroll processing and employee benefit administration.",
-          href: "/services/accounting/payroll"
-        },
-        { 
-          name: "Bank Reconciliation", 
-          description: "Accurate bank statement reconciliation and cash flow monitoring.",
-          href: "/services/accounting/reconciliation"
-        }
-      ]
-    },
-    {
-      title: "Financial Services",
-      color: "#0798B1",
-      icon: "💰",
-      description: "Strategic financial planning and analysis to drive your business growth.",
-      image: "/services/financial-planning.jpg",
-      features: ["Strategic planning", "Risk assessment", "Performance optimization", "Data-driven insights"],
-      subServices: [
-        { 
-          name: "Budgeting & Planning", 
-          description: "Comprehensive budget development and financial planning services.",
-          href: "/services/financial/budgeting"
-        },
-        { 
-          name: "Cash Flow Management", 
-          description: "Optimize cash flow with strategic planning and monitoring tools.",
-          href: "/services/financial/cashflow"
-        },
-        { 
-          name: "Treasury Management", 
-          description: "Professional treasury operations and liquidity management.",
-          href: "/services/financial/treasury"
-        },
-        { 
-          name: "Risk Management", 
-          description: "Identify, assess, and mitigate financial risks effectively.",
-          href: "/services/financial/risk"
-        },
-        { 
-          name: "Financial Analytics", 
-          description: "Advanced financial analysis and performance measurement.",
-          href: "/services/financial/analytics"
-        },
-        { 
-          name: "Capital Allocation", 
-          description: "Strategic capital deployment for maximum ROI optimization.",
-          href: "/services/financial/capital"
-        }
-      ]
-    },
-    {
-      title: "Investment Research",
-      color: "#545454",
-      icon: "📈",
-      description: "In-depth investment analysis and research for informed decision-making.",
-      image: "/services/investment-research.jpg",
-      features: ["Market analysis", "Portfolio optimization", "ESG integration", "Risk assessment"],
-      subServices: [
-        { 
-          name: "Equity Research", 
-          description: "Comprehensive equity analysis and investment recommendations.",
-          href: "/services/investment/equity"
-        },
-        { 
-          name: "Portfolio Optimization", 
-          description: "Advanced portfolio construction and optimization strategies.",
-          href: "/services/investment/portfolio"
-        },
-        { 
-          name: "ESG Analysis", 
-          description: "Environmental, Social, and Governance investment evaluation.",
-          href: "/services/investment/esg"
-        },
-        { 
-          name: "Risk Analysis", 
-          description: "Detailed investment risk assessment and management.",
-          href: "/services/investment/risk"
-        },
-        { 
-          name: "Sector Research", 
-          description: "Industry-specific research and thematic investment analysis.",
-          href: "/services/investment/sector"
-        },
-        { 
-          name: "Performance Analysis", 
-          description: "Investment performance measurement and attribution analysis.",
-          href: "/services/investment/performance"
-        }
-      ]
-    },
-    {
-      title: "Business Advisory",
-      color: "#2D5AA0",
-      icon: "🎯",
-      description: "Strategic business consulting to accelerate your company's growth.",
-      image: "/services/business-consulting.jpg",
-      features: ["Strategic guidance", "M&A expertise", "Valuation services", "Growth planning"],
-      subServices: [
-        { 
-          name: "Strategic Planning", 
-          description: "Comprehensive business strategy development and execution.",
-          href: "/services/business/strategy"
-        },
-        { 
-          name: "M&A Support", 
-          description: "Complete merger and acquisition advisory services.",
-          href: "/services/business/ma"
-        },
-        { 
-          name: "Due Diligence", 
-          description: "Thorough business and financial due diligence processes.",
-          href: "/services/business/diligence"
-        },
-        { 
-          name: "Valuation Services", 
-          description: "Professional business valuation and appraisal services.",
-          href: "/services/business/valuation"
-        },
-        { 
-          name: "Business Coaching", 
-          description: "Executive coaching and leadership development programs.",
-          href: "/services/business/coaching"
-        },
-        { 
-          name: "Succession Planning", 
-          description: "Strategic succession planning and family business advisory.",
-          href: "/services/business/succession"
-        }
-      ]
-    }
-  ];
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white py-16">
-      <div className="container mx-auto px-4">
-        {/* Header */}
-        <motion.div 
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h1 className="text-4xl md:text-6xl font-bold text-[#545454] mb-6">
-            Our Services
-          </h1>
-          <p className="text-xl text-[#545454]/80 max-w-4xl mx-auto leading-relaxed">
-            Comprehensive financial and business solutions designed to drive your success. 
-            From accounting to advanced analytics, we provide expert services tailored to your needs.
-          </p>
-        </motion.div>
+    <div className="min-h-screen bg-white">
+      {/* Enhanced Hero Section */}
+      <section className="relative py-24 lg:py-32 overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#f8fdff] via-[#ffffff] to-[#f0f9fa]"></div>
+        <div className="absolute top-20 left-10 w-32 h-32 bg-[#4DC6D7] rounded-full opacity-10 blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-[#0798B1] rounded-full opacity-10 blur-3xl"></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div 
+            className="text-center max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <motion.div
+              className="flex items-center justify-center space-x-2 mb-6"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+            >
+              <div className="px-4 py-2 bg-[#4DC6D7]/10 rounded-full border border-[#4DC6D7]/20">
+                <span className="text-[#0798B1] font-semibold text-sm">Professional Services</span>
+              </div>
+            </motion.div>
+            
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#545454] mb-6 leading-tight">
+              Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4DC6D7] to-[#0798B1]">Expert</span> Services
+            </h1>
+            <p className="text-xl md:text-2xl text-[#545454]/80 mb-8 leading-relaxed font-light">
+              Comprehensive financial and advisory solutions designed to accelerate your business growth and optimize performance
+            </p>
+            
+            <motion.div 
+              className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.8 }}
+            >
+              <Link href="/contacts">
+                <motion.button 
+                  className="bg-gradient-to-r from-[#4DC6D7] to-[#0798B1] text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Schedule Consultation
+                </motion.button>
+              </Link>
+              <motion.div 
+                className="flex items-center space-x-2 text-[#545454]/70"
+                whileHover={{ scale: 1.05 }}
+              >
+                <div className="flex -space-x-2">
+                  <div className="w-8 h-8 bg-[#4DC6D7] rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold">A</div>
+                  <div className="w-8 h-8 bg-[#0798B1] rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold">B</div>
+                  <div className="w-8 h-8 bg-[#2D5AA0] rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold">C</div>
+                </div>
+                <span className="font-medium">Trusted by 500+ businesses</span>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        </div>
 
-        {/* Services Grid - Modern Card Layout */}
-        <div className="grid lg:grid-cols-2 gap-8 mb-16">
+        {/* Floating Elements */}
+        <motion.div
+          className="absolute top-1/4 left-1/4 opacity-20"
+          animate={{ y: [-10, 10, -10] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <Star className="w-6 h-6 text-[#4DC6D7]" />
+        </motion.div>
+        <motion.div
+          className="absolute top-1/3 right-1/4 opacity-20"
+          animate={{ y: [10, -10, 10] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <Award className="w-8 h-8 text-[#0798B1]" />
+        </motion.div>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-20 bg-gradient-to-b from-white to-[#f8fdff]">
+        <div className="container mx-auto px-4">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ amount: 0.3 }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-[#545454] mb-6">
+              Professional <span className="text-[#4DC6D7]">Advisory</span> Solutions
+            </h2>
+            <p className="text-xl text-[#545454]/80 max-w-3xl mx-auto leading-relaxed">
+              Comprehensive financial and business advisory services tailored to drive your success
+            </p>
+          </motion.div>
+
+        {/* Enhanced Services Cards */}
+        <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8 mb-20">
           {services.map((service, index) => (
             <motion.div
               key={index}
-              className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 cursor-pointer"
+              className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 cursor-pointer h-full flex flex-col"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -220,48 +121,44 @@ const ServicesPage = () => {
               onMouseEnter={() => setHoveredCard(index)}
               onMouseLeave={() => setHoveredCard(null)}
             >
-              {/* Card Header Image */}
-              <div className="relative h-48 overflow-hidden">
-                <Image
-                  src={service.image}
-                  alt={service.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  priority={index < 2}
-                  className="object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div 
-                  className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"
-                />
-                <div className="absolute bottom-4 left-4 flex items-center space-x-3">
+              {/* Card Content */}
+              <div className="p-8 flex-1 flex flex-col">
+                {/* Icon and Title */}
+                <div className="flex items-center space-x-4 mb-6">
                   <div 
-                    className="w-12 h-12 rounded-xl flex items-center justify-center text-xl shadow-lg backdrop-blur-sm border border-white/20"
-                    style={{ backgroundColor: `${service.color}20`, color: service.color }}
+                    className="w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-110"
+                    style={{ 
+                      backgroundColor: `${service.color}15`,
+                      boxShadow: hoveredCard === index ? `0 8px 25px ${service.color}25` : undefined
+                    }}
                   >
-                    {service.icon}
+                    <service.icon className="w-8 h-8" style={{ color: service.color }} />
                   </div>
-                  <div className="text-white">
-                    <h3 className="text-xl font-bold">{service.title}</h3>
-                    <p className="text-sm opacity-90">{service.subServices.length} Services</p>
+                  <div>
+                    <h3 className="text-2xl font-bold text-[#545454] group-hover:text-[#0798B1] transition-colors duration-300">
+                      {service.title}
+                    </h3>
+                    <p className="text-sm text-[#545454]/60 font-medium">
+                      {service.subServices.length} specialized services
+                    </p>
                   </div>
                 </div>
-              </div>
 
-              {/* Card Content */}
-              <div className="p-6">
-                <p className="text-[#545454]/80 text-lg mb-4 leading-relaxed">
+                {/* Description */}
+                <p className="text-[#545454]/80 text-lg mb-6 leading-relaxed font-light flex-1">
                   {service.description}
                 </p>
 
                 {/* Features */}
-                <div className="flex flex-wrap gap-2 mb-6">
+                <div className="flex flex-wrap gap-2 mb-8">
                   {service.features.map((feature, featureIndex) => (
                     <span
                       key={featureIndex}
-                      className="px-3 py-1 bg-gray-100 text-[#545454] text-sm rounded-full"
+                      className="px-4 py-2 bg-gray-50 text-[#545454] text-sm rounded-full font-medium transition-all duration-300"
                       style={{ 
-                        backgroundColor: hoveredCard === index ? `${service.color}20` : undefined,
-                        color: hoveredCard === index ? service.color : undefined
+                        backgroundColor: hoveredCard === index ? `${service.color}15` : undefined,
+                        color: hoveredCard === index ? service.color : undefined,
+                        borderColor: hoveredCard === index ? `${service.color}30` : undefined
                       }}
                     >
                       {feature}
@@ -276,16 +173,15 @@ const ServicesPage = () => {
                   transition={{ duration: 0.2 }}
                 >
                   <Link 
-                    href={`/services/${service.title.toLowerCase().replace(/\s+/g, '-').replace('&', '')}`}
-                    className="group/btn flex items-center space-x-2 font-semibold transition-colors duration-300"
+                    href={`/services/${service.id}`}
+                    className="group/btn flex items-center space-x-2 font-bold text-lg transition-colors duration-300"
                     style={{ color: service.color }}
-                    as={`/services/${service.title.toLowerCase().replace(/\s+/g, '-').replace('&', '')}`}
                   >
                     <span>Explore Services</span>
                     <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform duration-300" />
                   </Link>
                   
-                  <div className="flex items-center space-x-1 text-sm text-[#545454]/60">
+                  <div className="flex items-center space-x-2 text-sm text-[#545454]/60 font-medium">
                     <Users className="w-4 h-4" />
                     <span>Expert Team</span>
                   </div>
@@ -294,137 +190,111 @@ const ServicesPage = () => {
             </motion.div>
           ))}
         </div>
+        </div>
+      </section>
 
-        {/* Sub-Services Showcase */}
-        <motion.div
-          className="mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ amount: 0.3 }}
-        >
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#545454] mb-4">
-              Specialized Sub-Services
+      {/* Why Choose Us */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ amount: 0.3 }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-[#545454] mb-6">
+              Why Choose <span className="text-[#4DC6D7]">Nexuss Advisory</span>
             </h2>
-            <p className="text-lg text-[#545454]/80 max-w-3xl mx-auto">
-              Dive deeper into our specialized services designed to address your specific business needs.
+            <p className="text-xl text-[#545454]/80 max-w-3xl mx-auto">
+              Experience the difference of working with industry-leading professionals
             </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                icon: Star,
+                title: "Expert Team",
+                description: "Certified professionals with decades of combined experience"
+              },
+              {
+                icon: Clock,
+                title: "Timely Delivery",
+                description: "Committed to meeting deadlines and exceeding expectations"
+              },
+              {
+                icon: Award,
+                title: "Proven Results",
+                description: "Track record of successful client outcomes and business growth"
+              },
+              {
+                icon: Users,
+                title: "Dedicated Support",
+                description: "Personal attention and ongoing support for every client"
+              }
+            ].map((benefit, index) => (
+              <motion.div
+                key={index}
+                className="text-center p-6"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1, duration: 0.6 }}
+                viewport={{ amount: 0.3 }}
+              >
+                <div className="w-16 h-16 bg-gradient-to-br from-[#4DC6D7] to-[#0798B1] rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <benefit.icon className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-[#545454] mb-3">{benefit.title}</h3>
+                <p className="text-[#545454]/70 leading-relaxed">{benefit.description}</p>
+              </motion.div>
+            ))}
           </div>
+        </div>
+      </section>
 
-          {/* Sub-Services Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.slice(0, 2).map((service) => 
-              service.subServices.slice(0, 3).map((subService, subIndex) => (
-                <motion.div
-                  key={`${service.title}-${subIndex}`}
-                  className="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 p-6 border border-gray-100 group cursor-pointer"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: subIndex * 0.1 }}
-                  viewport={{ amount: 0.3 }}
-                  whileHover={{ y: -4, scale: 1.02 }}
-                >
-                  <div className="flex items-start space-x-4">
-                    <div 
-                      className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300"
-                      style={{ backgroundColor: `${service.color}20` }}
-                    >
-                      <ChevronRight 
-                        className="w-5 h-5"
-                        style={{ color: service.color }}
-                      />
-                    </div>
-                    <div className="flex-1">
-                      <h4 className="text-lg font-semibold text-[#545454] mb-2 group-hover:text-[#0798B1] transition-colors duration-300">
-                        {subService.name}
-                      </h4>
-                      <p className="text-[#545454]/70 text-sm leading-relaxed">
-                        {subService.description}
-                      </p>
-                      <Link
-                        href={subService.href}
-                        className="inline-flex items-center space-x-1 mt-3 text-sm font-medium group-hover:translate-x-1 transition-transform duration-300"
-                        style={{ color: service.color }}
-                      >
-                        <span>Learn More</span>
-                        <ArrowRight className="w-4 h-4" />
-                      </Link>
-                    </div>
-                  </div>
-                </motion.div>
-              ))
-            )}
-          </div>
-        </motion.div>
-
-        {/* Stats Section */}
-        <motion.div
-          className="grid md:grid-cols-4 gap-6 mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ amount: 0.3 }}
-        >
-          {[
-            { icon: Users, number: "500+", label: "Happy Clients" },
-            { icon: Star, number: "15+", label: "Years Experience" },
-            { icon: Award, number: "50+", label: "Expert Advisors" },
-            { icon: Clock, number: "24/7", label: "Support Available" }
-          ].map((stat, index) => (
-            <motion.div
-              key={index}
-              className="text-center p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ amount: 0.3 }}
-              whileHover={{ y: -4 }}
-            >
-              <div className="w-16 h-16 bg-[#4DC6D7]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <stat.icon className="w-8 h-8 text-[#4DC6D7]" />
-              </div>
-              <h3 className="text-2xl font-bold text-[#545454] mb-2">{stat.number}</h3>
-              <p className="text-[#545454]/70">{stat.label}</p>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Call to Action */}
-        <motion.div 
-          className="text-center"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ amount: 0.3 }}
-        >
-          <div className="bg-gradient-to-r from-[#4DC6D7] via-[#0798B1] to-[#545454] rounded-2xl p-8 text-white shadow-2xl">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+      {/* CTA Section */}
+      <section className="py-20 bg-gradient-to-br from-[#4DC6D7] to-[#0798B1] text-white">
+        <div className="container mx-auto px-4 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ amount: 0.3 }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Ready to Transform Your Business?
             </h2>
-            <p className="text-xl mb-8 opacity-90 max-w-3xl mx-auto">
-              Let&apos;s discuss how our comprehensive services can drive your success forward. 
-              Get started with a free consultation today.
+            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+              Let our experts help you achieve your financial and business goals
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-4 justify-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.8 }}
+              viewport={{ amount: 0.3 }}
+            >
+              <Link href="/contacts">
+                <motion.button 
+                  className="bg-white text-[#0798B1] px-8 py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Schedule Free Consultation
+                </motion.button>
+              </Link>
               <motion.button 
-                className="bg-white text-[#4DC6D7] px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-all duration-300 shadow-lg"
+                className="border border-white text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white hover:text-[#0798B1] transition-all duration-300"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Get Started Today
+                Call (555) 123-4567
               </motion.button>
-              <motion.button 
-                className="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-[#4DC6D7] transition-all duration-300"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Schedule Consultation
-              </motion.button>
-            </div>
-          </div>
-        </motion.div>
-      </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
     </div>
   );
 };

@@ -47,24 +47,24 @@ const MiniCalendar = () => {
 
   return (
     <motion.div
-      className="bg-white/10 backdrop-blur-md rounded-xl border border-white/20 p-4 shadow-xl"
+      className="bg-white/10 backdrop-blur-md rounded-xl border border-white/20 p-6 shadow-xl"
       initial={{ opacity: 0, scale: 0.8, y: 20 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 1.2 }}
     >
       {/* Calendar Header */}
-      <div className="mb-3">
-        <h3 className="text-white font-semibold text-center text-sm">
+      <div className="mb-4">
+        <h3 className="text-white font-semibold text-center text-base">
           {monthNames[currentDate.getMonth()]} {currentDate.getFullYear()}
         </h3>
       </div>
 
       {/* Days of Week Header */}
-      <div className="grid grid-cols-7 gap-1 mb-2">
+      <div className="grid grid-cols-7 gap-2 mb-3">
         {daysOfWeek.map((day) => (
           <div
             key={day}
-            className="text-white/70 text-xs font-medium text-center py-1"
+            className="text-white/70 text-sm font-medium text-center py-2"
           >
             {day}
           </div>
@@ -72,12 +72,12 @@ const MiniCalendar = () => {
       </div>
 
       {/* Calendar Grid */}
-      <div className="grid grid-cols-7 gap-1">
+      <div className="grid grid-cols-7 gap-2">
         {days.map((day, index) => (
           <motion.div
             key={index}
             className={`
-              h-7 w-7 flex items-center justify-center text-xs rounded-md
+              h-10 w-10 flex items-center justify-center text-sm rounded-lg
               transition-all duration-200
               ${day 
                 ? isToday(day)
@@ -96,7 +96,7 @@ const MiniCalendar = () => {
 
       {/* Bottom accent */}
       <motion.div
-        className="mt-3 h-1 bg-gradient-to-r from-[#4DC6D7] to-[#0798B1] rounded-full"
+        className="mt-4 h-1 bg-gradient-to-r from-[#4DC6D7] to-[#0798B1] rounded-full"
         initial={{ width: 0 }}
         animate={{ width: "100%" }}
         transition={{ duration: 0.8, delay: 1.5 }}

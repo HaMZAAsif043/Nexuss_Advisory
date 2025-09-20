@@ -54,14 +54,13 @@ const HeroSection = () => {
               Financial Excellence Redefined
             </motion.div> */}
 
-            <div className="text-4xl md:text-5xl lg:text-3xl font-bold leading-tight">
+            <div className="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight mb-6">
               <SwipeableText
                 texts={[
                   "Where Financial Expertise Meets Strategic Innovation",
                   "Navigate the complexities of modern business with confidence.",
                 ]}
-                className="bg-gradient-to-r text-white
-                 from-white to-white bg-clip-text  min-h-[120px]"
+                className="bg-gradient-to-r text-white from-white to-white bg-clip-text"
               />
             </div>
 

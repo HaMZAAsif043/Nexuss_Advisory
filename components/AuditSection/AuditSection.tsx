@@ -5,26 +5,11 @@ import { motion } from 'framer-motion';
 
 const AuditSection = () => {
   const services = [
-  {
-    title: "Personal financial planning & wealth management",
-    description: "Helping you create and manage a sustainable financial future",
-  },
-  {
-    title: "Tax planning & compliance support",
-    description: "Optimizing tax strategies while ensuring compliance",
-  },
-  {
-    title: "Investment research & portfolio optimisation",
-    description: "Maximizing returns with data-driven investment strategies",
-  },
-  {
-    title: "Coaching for ACCA, CA, CFA & business/finance students",
-    description: "Guidance and mentorship for professional growth",
-  },
-  {
-    title: "Business advisory & financial consultancy",
-    description: "Expert advice for businesses and entrepreneurs",
-  },
+ "Financial Planning & Wealth Management",
+  "Tax Planning & Compliance Support",
+  "Investment Research & Portfolio Optimization",
+  "Business & Financial Consultancy for Entrepreneurs",
+  "Data-Driven Insights & Analytics for Better Planning"
 ];
 
   return (
@@ -69,11 +54,9 @@ const AuditSection = () => {
           {/* Right Content */}
           <div className="order-1 lg:order-2">
             <h2 className="text-3xl md:text-4xl font-bold text-[#545454] mb-6">
-             For Individuals 
-            </h2>
+Individual Solutions            </h2>
             <p className="text-[#545454]/80 mb-6 leading-relaxed">
-              We empower individuals to take control of their financial future and career growth. From wealth management to professional coaching, our services help you plan smarter, invest better, and succeed in business and finance.
-            Personal financial planning & wealth management
+             We help individuals build financial security and long-term success with personalized strategies for planning, investment, and compliance.
             </p>
             
                <div className="space-y-4 mb-8">
@@ -101,7 +84,7 @@ const AuditSection = () => {
                           d="M5 13l4 4L19 7"
                         />
                       </motion.svg>
-                      {item?.title}
+                      {item}
                     </motion.li>
                   ))}
     </div>
