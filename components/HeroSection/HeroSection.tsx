@@ -7,7 +7,7 @@ import MiniCalendar from "./MiniCalendar";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-[#0798B1] via-[#4DC6D7] to-[#545454] overflow-hidden hero-section">
+    <section className="relative max-h-screen bg-gradient-to-br from-[#0798B1] via-[#4DC6D7] to-[#545454] overflow-hidden hero-section">
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image

@@ -5,10 +5,11 @@ import {
   Calculator,
   ChartNoAxesCombined,
   BarChart3,
-  BarChart,
-  ChartCandlestick
+  ChartCandlestick,
+  LaptopMinimalCheck,
+  Handshake
 } from "lucide-react";
- 
+  
 const AreasOfFocus = () => {
   const focusAreas = [
     {
@@ -26,7 +27,7 @@ const AreasOfFocus = () => {
       color: "#4DC6D7",
     },
     {
-      icon: BarChart3,
+      icon: Handshake,
       title: "Transactional Advisory",
       description:
         "Strategic tax planning to maximize your financial efficiency",
@@ -40,7 +41,7 @@ const AreasOfFocus = () => {
       color: "#4DC6D7",
     },
     {
-      icon: BarChart,
+      icon: LaptopMinimalCheck,
       title: "Data-Driven Insights & Analytics",
       description:
         "Leverage advanced analytics to uncover opportunities, optimize strategies, and guide informed decisions.",
@@ -70,7 +71,7 @@ const AreasOfFocus = () => {
 
           {/* Focus Areas Grid */}
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 max-w-6xl mx-auto"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 max-w-full mx-auto"
             initial="hidden"
             whileInView="visible"
             viewport={{ amount: 0.2 }}
