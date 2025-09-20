@@ -154,7 +154,7 @@ const HeroSection = () => {
       </div>
 
       {/* Mini Calendar - Bottom Right */}
-      <div className="absolute bottom-8 right-8 z-20 hidden lg:block">
+      <div className="absolute top-24 right-4 z-20 hidden lg:block">
         <MiniCalendar />
       </div>
     </section>

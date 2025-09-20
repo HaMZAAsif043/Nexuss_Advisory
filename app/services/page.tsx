@@ -1,12 +1,11 @@
 "use client"
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Star, Users, Clock, Award } from 'lucide-react';
+import { Star, Users, Clock, Award } from 'lucide-react';
 import Link from 'next/link';
 import { services } from '@/data/services';
 
 const ServicesPage = () => {
-  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   return (
     <div className="min-h-screen bg-white">
@@ -57,7 +56,7 @@ const ServicesPage = () => {
                   Schedule Consultation
                 </motion.button>
               </Link>
-              <motion.div 
+              {/* <motion.div 
                 className="flex items-center space-x-2 text-[#545454]/70"
                 whileHover={{ scale: 1.05 }}
               >
@@ -67,7 +66,7 @@ const ServicesPage = () => {
                   <div className="w-8 h-8 bg-[#2D5AA0] rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold">C</div>
                 </div>
                 <span className="font-medium">Trusted by 500+ businesses</span>
-              </motion.div>
+              </motion.div> */}
             </motion.div>
           </motion.div>
         </div>
@@ -107,86 +106,58 @@ const ServicesPage = () => {
             </p>
           </motion.div>
 
-        {/* Enhanced Services Cards */}
-        <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8 mb-20">
+        {/* Simple Services Cards */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
           {services.map((service, index) => (
             <motion.div
               key={index}
-              className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 cursor-pointer h-full flex flex-col"
-              initial={{ opacity: 0, y: 50 }}
+              className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 h-full flex flex-col"
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ amount: 0.3 }}
-              whileHover={{ scale: 1.02, y: -8 }}
-              onMouseEnter={() => setHoveredCard(index)}
-              onMouseLeave={() => setHoveredCard(null)}
+              whileHover={{ y: -5 }}
             >
-              {/* Card Content */}
-              <div className="p-8 flex-1 flex flex-col">
-                {/* Icon and Title */}
-                <div className="flex items-center space-x-4 mb-6">
-                  <div 
-                    className="w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-110"
-                    style={{ 
-                      backgroundColor: `${service.color}15`,
-                      boxShadow: hoveredCard === index ? `0 8px 25px ${service.color}25` : undefined
-                    }}
-                  >
-                    <service.icon className="w-8 h-8" style={{ color: service.color }} />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-[#545454] group-hover:text-[#0798B1] transition-colors duration-300">
-                      {service.title}
-                    </h3>
-                    <p className="text-sm text-[#545454]/60 font-medium">
-                      {service.subServices.length} specialized services
-                    </p>
-                  </div>
-                </div>
-
-                {/* Description */}
-                <p className="text-[#545454]/80 text-lg mb-6 leading-relaxed font-light flex-1">
-                  {service.description}
-                </p>
-
-                {/* Features */}
-                <div className="flex flex-wrap gap-2 mb-8">
-                  {service.features.map((feature, featureIndex) => (
-                    <span
-                      key={featureIndex}
-                      className="px-4 py-2 bg-gray-50 text-[#545454] text-sm rounded-full font-medium transition-all duration-300"
-                      style={{ 
-                        backgroundColor: hoveredCard === index ? `${service.color}15` : undefined,
-                        color: hoveredCard === index ? service.color : undefined,
-                        borderColor: hoveredCard === index ? `${service.color}30` : undefined
-                      }}
-                    >
-                      {feature}
-                    </span>
-                  ))}
-                </div>
-
-                {/* View Services Button */}
-                <motion.div
-                  className="flex items-center justify-between"
-                  whileHover={{ x: 5 }}
-                  transition={{ duration: 0.2 }}
+              {/* Icon */}
+              <div className="text-center mb-4">
+                <div 
+                  className="w-16 h-16 rounded-full mx-auto flex items-center justify-center mb-4"
+                  style={{ backgroundColor: `${service.color}15` }}
                 >
-                  <Link 
-                    href={`/services/${service.id}`}
-                    className="group/btn flex items-center space-x-2 font-bold text-lg transition-colors duration-300"
-                    style={{ color: service.color }}
-                  >
-                    <span>Explore Services</span>
-                    <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform duration-300" />
-                  </Link>
-                  
-                  <div className="flex items-center space-x-2 text-sm text-[#545454]/60 font-medium">
-                    <Users className="w-4 h-4" />
-                    <span>Expert Team</span>
-                  </div>
-                </motion.div>
+                  <service.icon className="w-8 h-8" style={{ color: service.color }} />
+                </div>
+                <h3 className="text-xl font-bold text-[#545454] mb-2">
+                  {service.title}
+                </h3>
+                <p className="text-sm text-[#545454]/60">
+                  {service.subServices.length} specialized services
+                </p>
               </div>
+
+              {/* Description */}
+              <p className="text-[#545454]/80 text-center mb-6 leading-relaxed flex-1">
+                {service.description}
+              </p>
+
+              {/* Button */}
+              <Link 
+                href={`/services/${service.id}`}
+                className="w-full text-center py-3 px-6 rounded-lg font-semibold transition-all duration-300 border-2"
+                style={{ 
+                  borderColor: service.color,
+                  color: service.color 
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = service.color;
+                  e.currentTarget.style.color = 'white';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                  e.currentTarget.style.color = service.color;
+                }}
+              >
+                Explore Services
+              </Link>
             </motion.div>
           ))}
         </div>
@@ -289,7 +260,7 @@ const ServicesPage = () => {
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Call (555) 123-4567
+                Call +92 329 6395813
               </motion.button>
             </motion.div>
           </motion.div>

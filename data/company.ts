@@ -185,7 +185,7 @@ export const officeHours = {
 
 export const emergencyContact = {
   available: true,
-  phone: '+1-555-123-4567',
+  phone: '+92 329 6395813',
   email: 'emergency@nexussadvisory.com',
   hours: '24/7 for existing clients'
 };

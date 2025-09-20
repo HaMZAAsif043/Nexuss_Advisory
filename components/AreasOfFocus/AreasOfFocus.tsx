@@ -3,12 +3,13 @@
 import { motion } from "framer-motion";
 import {
   Calculator,
-  TrendingUp,
+  ChartNoAxesCombined,
   BarChart3,
   BarChart,
   Handshake,
+  ChartCandlestick
 } from "lucide-react";
-
+ 
 const AreasOfFocus = () => {
   const focusAreas = [
     {
@@ -19,7 +20,7 @@ const AreasOfFocus = () => {
       color: "#0798B1",
     },
     {
-      icon: TrendingUp,
+      icon: ChartNoAxesCombined ,
       title: "Financial Services",
       description:
         "Expert guidance on investment opportunities and portfolio management",
@@ -33,7 +34,7 @@ const AreasOfFocus = () => {
       color: "#4DC6D7",
     },
     {
-      icon: Handshake,
+      icon: ChartCandlestick,
       title: "Investment Research & Advisory",
       description:
         "Objective research and advisory to help optimize your investment strategies",

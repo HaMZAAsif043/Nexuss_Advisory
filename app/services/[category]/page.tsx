@@ -160,7 +160,7 @@ const CategoryPage = ({ params }: CategoryPageProps) => {
                 <div className="space-y-4 mb-8">
                   <div className="flex items-center space-x-3">
                     <Phone className="w-5 h-5" style={{ color: service.color }} />
-                    <span className="text-[#545454]/80">+1 (555) 123-4567</span>
+                    <span className="text-[#545454]/80">+92 329 6395813</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <Mail className="w-5 h-5" style={{ color: service.color }} />
@@ -368,7 +368,7 @@ const CategoryPage = ({ params }: CategoryPageProps) => {
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
-              Call (555) 123-4567
+              Call +92 329 6395813
             </motion.button>
           </motion.div>
         </div>
