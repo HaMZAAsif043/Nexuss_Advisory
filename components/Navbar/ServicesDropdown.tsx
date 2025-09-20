@@ -16,63 +16,63 @@ const ServicesDropdown = () => {
 
   const services: ServiceItem[] = [
     {
-      name: "Accounting & BookKeeping",
+      name: "Accounting & Compliance",
       href: "/services/accounting",
       subServices: [
-        { name: "QuickBooks Setup", href: "/services/accounting/quickbooks" },
-        { name: "Accounts Payable", href: "/services/accounting/payable" },
-        { name: "Accounts Receivable", href: "/services/accounting/receivable" },
-        { name: "Tax Management", href: "/services/accounting/tax" },
-        { name: "Payroll Management", href: "/services/accounting/payroll" },
-        { name: "Bank Reconciliation", href: "/services/accounting/reconciliation" }
+        { name: "General Ledger & Fixed Asset Management", href: "/services/accounting/general-ledger" },
+        { name: "Bank, Inventory & Cost Accounting", href: "/services/accounting/bank-inventory" },
+        { name: "Financial Statements Preparation", href: "/services/accounting/financial-statements" },
+        { name: "Accounting Policy Advisory", href: "/services/accounting/policy-advisory" },
+        { name: "Tax Compliance & Advisory", href: "/services/accounting/tax-compliance" },
+        { name: "IFRS/GAAP Compliance Support", href: "/services/accounting/ifrs-gaap" }
       ]
     },
     {
       name: "Financial Services",
       href: "/services/financial",
       subServices: [
-        { name: "Budgeting & Planning", href: "/services/financial/budgeting" },
-        { name: "Cash Flow Management", href: "/services/financial/cashflow" },
-        { name: "Treasury Management", href: "/services/financial/treasury" },
-        { name: "Risk Management", href: "/services/financial/risk" },
-        { name: "Financial Analytics", href: "/services/financial/analytics" },
-        { name: "Capital Allocation", href: "/services/financial/capital" }
+        { name: "Financial Analysis & Reporting", href: "/services/financial/analysis-reporting" },
+        { name: "Budgeting, Forecasting & Scenario Modeling", href: "/services/financial/budgeting-forecasting" },
+        { name: "Financial Modeling & Sensitivity Analysis", href: "/services/financial/modeling-analysis" },
+        { name: "Cash Flow & Working Capital Management", href: "/services/financial/cash-flow" },
+        { name: "Business Dashboards & Performance Analytics", href: "/services/financial/dashboards" },
+        { name: "Corporate Finance Support & KPI Monitoring", href: "/services/financial/corporate-finance" }
       ]
     },
     {
-      name: "Investment Research",
+      name: "Transactional Advisory",
+      href: "/services/transactional",
+      subServices: [
+        { name: "Mergers & Acquisitions (M&A)", href: "/services/transactional/mergers-acquisitions" },
+        { name: "Commercial Due Diligence", href: "/services/transactional/due-diligence" },
+        { name: "Valuation (Pre-IPO, Business & Startups)", href: "/services/transactional/valuation" },
+        { name: "Investor Documentation & Pitch Decks", href: "/services/transactional/investor-docs" },
+        { name: "Restructuring & Turnaround", href: "/services/transactional/restructuring" },
+        { name: "Deal Execution & Post-Merger Integration", href: "/services/transactional/deal-execution" }
+      ]
+    },
+    {
+      name: "Investment Research & Advisory",
       href: "/services/investment",
       subServices: [
-        { name: "Equity Research", href: "/services/investment/equity" },
-        { name: "Portfolio Optimization", href: "/services/investment/portfolio" },
-        { name: "ESG Analysis", href: "/services/investment/esg" },
-        { name: "Risk Analysis", href: "/services/investment/risk" },
-        { name: "Sector Research", href: "/services/investment/sector" },
-        { name: "Performance Analysis", href: "/services/investment/performance" }
+        { name: "Market & Sector Analysis", href: "/services/investment/market-analysis" },
+        { name: "Equity & Bond Research", href: "/services/investment/equity-bond" },
+        { name: "ESG & Sustainability Analysis", href: "/services/investment/esg-analysis" },
+        { name: "Portfolio & Wealth Advisory", href: "/services/investment/portfolio-wealth" },
+        { name: "Corporate Investment Advisory", href: "/services/investment/corporate-advisory" },
+        { name: "Risk & Return Assessment", href: "/services/investment/risk-assessment" }
       ]
     },
     {
-      name: "Business Advisory",
-      href: "/services/business",
-      subServices: [
-        { name: "Strategic Planning", href: "/services/business/strategy" },
-        { name: "M&A Support", href: "/services/business/ma" },
-        { name: "Due Diligence", href: "/services/business/diligence" },
-        { name: "Valuation Services", href: "/services/business/valuation" },
-        { name: "Business Coaching", href: "/services/business/coaching" },
-        { name: "Succession Planning", href: "/services/business/succession" }
-      ]
-    },
-    {
-      name: "Data & Analytics",
+      name: "Data-Driven Insights & Analytics",
       href: "/services/analytics",
       subServices: [
-        { name: "Power BI Dashboards", href: "/services/analytics/powerbi" },
-        { name: "Tableau Solutions", href: "/services/analytics/tableau" },
-        { name: "SQL & Database", href: "/services/analytics/sql" },
-        { name: "Python Analytics", href: "/services/analytics/python" },
-        { name: "Financial Reporting", href: "/services/analytics/reporting" },
-        { name: "Predictive Modeling", href: "/services/analytics/modeling" }
+        { name: "Financial & Business Dashboards", href: "/services/analytics/business-dashboards" },
+        { name: "Market & Industry Benchmarking Dashboards", href: "/services/analytics/benchmarking" },
+        { name: "Predictive Analytics & Future Trend Modeling", href: "/services/analytics/predictive-analytics" },
+        { name: "Automated Reporting Solutions", href: "/services/analytics/automated-reporting" },
+        { name: "Scenario Planning & What-If Analysis", href: "/services/analytics/scenario-planning" },
+        { name: "Automated Data Cleaning & Integration", href: "/services/analytics/data-cleaning" }
       ]
     }
   ];

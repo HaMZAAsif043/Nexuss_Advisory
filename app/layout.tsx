@@ -6,7 +6,7 @@ import Navbar from "@/components/Navbar/navbar";
 import Footer from "@/components/Footer/Footer";
 import Chatbot from "@/components/Chatbot/Chatbot";
 import Script from "next/script";
-
+import Image from "next/image";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -32,10 +32,13 @@ export const metadata: Metadata = {
   title: "Nexuss Advisory",
   description:
     "Nexuss Advisory provides expert financial advisory services, helping businesses and individuals achieve sustainable growth, smarter investments, and long-term success.",
-   icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
-    shortcut: "/favicon.ico",
+    icons: {
+    icon: [
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.ico" }, 
+    ],
+    apple: "/apple-touch-icon.png", 
   },
   openGraph: {
     title: "Nexuss Advisory",
@@ -66,13 +69,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-         <head>
-        {/* Google Analytics */}
+          <head>
+              <link rel="canonical" href="https://www.nexussadvisory.com/" />
         <Script
-          strategy="afterInteractive"
+          async
           src="https://www.googletagmanager.com/gtag/js?id=G-DML5RGFE70"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -80,6 +83,33 @@ export default function RootLayout({
             gtag('config', 'G-DML5RGFE70');
           `}
         </Script>
+
+        {/* Meta Pixel Code */}
+        <Script id="meta-pixel">
+          {`
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '778330488455497');
+            fbq('track', 'PageView');
+          `}
+        </Script>
+        <noscript>
+         <Image
+            height={1}
+            width={1}
+            style={{ display: "none" }}
+            src="https://www.facebook.com/tr?id=778330488455497&ev=PageView&noscript=1"
+            alt=""
+            unoptimized
+            priority={false}
+          />
+        </noscript>
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${merriw.variable} ${inter.variable} antialiased overflow-x-hidden`}

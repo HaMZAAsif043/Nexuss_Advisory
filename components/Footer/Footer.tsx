@@ -7,13 +7,11 @@ const socialLinks = [
   { href: "https://instagram.com/", icon: Instagram },
 ];
 const services = [
-  { name: "Accounting & Compliance", slug: "accounting-compliance" },
-  { name: "Financial Services", slug: "financial-services" },
-  { name: "Transactional Advisory", slug: "transactional-advisory" },
-  { name: "Investment Research", slug: "investment-research" },
-  { name: "Business Coaching", slug: "business-coaching" },
-  { name: "Advance Advisory Services", slug: "advance-advisory" },
-  { name: "Data & Analytics (Power BI | Tableau | SQL | Python)", slug: "data-analytics" },
+  { name: "Accounting & Compliance", slug: "accounting" },
+  { name: "Financial Services", slug: "financial" },
+  { name: "Transactional Advisory", slug: "transactional" },
+  { name: "Investment Research & Advisory", slug: "investment" },
+  { name: "Data-Driven Insights & Analytics", slug: "analytics" },
 ];
 const companyLinks = [
   { name: "About Us", slug: "about" },

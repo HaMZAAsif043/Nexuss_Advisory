@@ -31,138 +31,74 @@ export interface SubService {
 export const services: Service[] = [
   {
     id: 'accounting',
-    title: 'Accounting & BookKeeping',
+    title: 'Accounting & Compliance',
     description: 'Comprehensive accounting solutions to keep your business finances organized and compliant.',
     icon: '📊',
     color: '#4DC6D7',
     image: '/services/accounting.jpg',
-    overview: 'Our accounting and bookkeeping services provide the foundation for your business\'s financial success. We ensure accuracy, compliance, and strategic insights to drive your growth.',
+    overview: 'Our accounting and compliance services provide the foundation for your business\'s financial success. We ensure accuracy, compliance, and strategic insights to drive your growth.',
     features: [
-      'Real-time financial reporting',
-      'Tax compliance and preparation',
-      'Cash flow management',
-      'Monthly financial statements',
-      'Payroll processing',
-      'Accounts payable/receivable'
+      'General Ledger & Fixed Asset Management',
+      'Bank, Inventory & Cost Accounting',
+      'Financial Statements Preparation',
+      'Accounting Policy Advisory',
+      'Tax Compliance & Advisory',
+      'IFRS/GAAP Compliance Support'
     ],
     benefits: [
       'Improved financial accuracy',
-      'Time savings for business owners',
-      'Better cash flow management',
-      'Tax compliance assurance'
+      'Regulatory compliance assurance',
+      'Better asset management',
+      'Tax optimization strategies'
     ],
     process: [
-      'Initial consultation and assessment',
-      'System setup and data migration',
-      'Ongoing monthly bookkeeping',
-      'Regular financial reporting',
-      'Annual tax preparation'
+      'Initial compliance assessment',
+      'System setup and policy development',
+      'Ongoing accounting management',
+      'Regular compliance monitoring',
+      'Annual audits and reviews'
     ],
     subServices: [
       {
-        id: 'quickbooks',
-        name: 'QuickBooks Setup & Management',
-        description: 'Complete QuickBooks implementation and ongoing management for seamless accounting operations.',
-        details: 'Our certified QuickBooks professionals will set up your system, migrate historical data, and provide ongoing support to ensure your books are always accurate and up-to-date.',
-        price: 'Starting at $299/month',
+        id: 'general-ledger',
+        name: 'General Ledger & Fixed Asset Management',
+        description: 'Complete general ledger maintenance and fixed asset tracking systems.',
+        details: 'Our certified accounting professionals manage your general ledger, ensuring accurate recording of all transactions and comprehensive fixed asset management.',
+        price: 'Starting at $399/month',
         duration: 'Ongoing monthly service',
-        image: '/services/quickbooks.jpg',
+        image: '/services/accounting.jpg',
         features: [
-          'Complete QuickBooks setup and configuration',
-          'Historical data migration and cleanup',
+          'Complete chart of accounts setup',
+          'Daily transaction recording',
+          'Monthly general ledger reconciliation',
+          'Fixed asset register maintenance',
+          'Depreciation calculations',
+          'Asset disposal tracking'
+        ],
+        benefits: [
+          'Accurate financial records',
+          'Proper asset valuation',
+          'Tax compliance',
+          'Financial reporting accuracy'
+        ],
+        process: [
+          'Initial ledger assessment',
           'Chart of accounts optimization',
-          'Monthly bookkeeping and reconciliation',
-          'Custom reporting setup',
-          'User training and support',
-          'Bank and credit card integration',
-          'Inventory management setup',
-          'Payroll integration',
-          'Tax preparation support'
-        ],
-        benefits: [
-          'Automated financial processes',
-          'Real-time financial visibility',
-          'Reduced manual data entry',
-          'Improved accuracy and compliance',
-          'Time savings for business owners',
-          'Streamlined tax preparation'
-        ],
-        process: [
-          'Initial consultation and needs assessment',
-          'QuickBooks setup and configuration',
-          'Data migration and historical cleanup',
-          'Team training and documentation',
-          'Ongoing monthly management',
-          'Regular reviews and optimization'
+          'Fixed asset inventory',
+          'System implementation',
+          'Ongoing maintenance'
         ],
         deliverables: [
-          'Fully configured QuickBooks system',
-          'Clean, organized financial data',
-          'Custom financial reports',
-          'Monthly financial statements',
-          'Training materials and documentation',
-          'Ongoing support and maintenance'
+          'Monthly trial balance',
+          'Fixed asset schedule',
+          'Depreciation reports',
+          'Account reconciliations'
         ],
         industries: [
-          'Professional Services',
-          'Retail and E-commerce',
-          'Construction and Contractors',
-          'Healthcare Practices',
-          'Non-profit Organizations',
-          'Manufacturing'
-        ]
-      },
-      {
-        id: 'payable',
-        name: 'Accounts Payable Services',
-        description: 'Streamlined vendor payment processing and expense management systems.',
-        details: 'We handle all aspects of your accounts payable process, from invoice processing to payment scheduling, ensuring timely payments and maintaining good vendor relationships.',
-        price: 'Starting at $199/month',
-        duration: 'Monthly service',
-        image: '/services/accounts-payable.jpg',
-        features: [
-          'Invoice processing and approval workflows',
-          'Vendor management and onboarding',
-          'Payment scheduling and processing',
-          'Expense categorization and coding',
-          'Three-way matching (PO, receipt, invoice)',
-          'Cash flow optimization',
-          'Vendor statement reconciliation',
-          'Early payment discount management',
-          '1099 preparation and filing',
-          'Detailed reporting and analytics'
-        ],
-        benefits: [
-          'Improved vendor relationships',
-          'Better cash flow management',
-          'Reduced processing errors',
-          'Time savings for staff',
-          'Enhanced financial controls',
-          'Cost savings through discounts'
-        ],
-        process: [
-          'Current process assessment',
-          'Workflow design and implementation',
-          'Vendor data setup and migration',
-          'Staff training and transition',
-          'Ongoing processing and management',
-          'Monthly reporting and review'
-        ],
-        deliverables: [
-          'Streamlined AP workflows',
-          'Vendor database management',
-          'Monthly AP aging reports',
-          'Cash flow forecasts',
-          'Payment processing schedules',
-          'Annual 1099 preparation'
-        ],
-        industries: [
-          'Professional Services',
-          'Retail and Distribution',
+          'Manufacturing',
           'Construction',
           'Healthcare',
-          'Technology Companies',
-          'Manufacturing'
+          'Professional Services'
         ]
       }
     ]
@@ -176,12 +112,12 @@ export const services: Service[] = [
     image: '/services/financial.jpg',
     overview: 'Our financial services help you make informed decisions about your business\'s financial future through strategic planning, analysis, and optimization.',
     features: [
-      'Financial planning and analysis',
-      'Budget development and monitoring',
-      'Cash flow forecasting',
-      'Investment analysis',
-      'Risk management',
-      'Performance dashboards'
+      'Financial Analysis & Reporting',
+      'Budgeting, Forecasting & Scenario Modeling',
+      'Financial Modeling & Sensitivity Analysis',
+      'Cash Flow & Working Capital Management',
+      'Business Dashboards & Performance Analytics',
+      'Corporate Finance Support & KPI Monitoring'
     ],
     benefits: [
       'Better financial decision making',
@@ -197,75 +133,93 @@ export const services: Service[] = [
     ],
     subServices: [
       {
-        id: 'budgeting',
-        name: 'Budgeting & Planning',
-        description: 'Comprehensive budget development and financial planning services.',
-        details: 'We work with you to create realistic budgets, forecast future performance, and develop strategic financial plans that align with your business goals.',
-        price: 'Starting at $1,500',
-        duration: 'Initial setup + monthly reviews',
-        image: '/services/budgeting.jpg',
+        id: 'financial-analysis',
+        name: 'Financial Analysis & Reporting',
+        description: 'Comprehensive financial analysis and custom reporting solutions.',
+        details: 'We provide detailed financial analysis and create custom reports that give you insights into your business performance and financial health.',
+        price: 'Starting at $799/month',
+        duration: 'Monthly service',
+        image: '/services/financial.jpg',
         features: [
-          'Annual budget development',
-          'Monthly budget vs. actual analysis',
-          'Cash flow forecasting',
-          'Scenario planning and modeling',
-          'KPI identification and tracking',
-          'Capital expenditure planning',
-          'Revenue forecasting',
-          'Expense optimization analysis',
-          'Financial dashboard creation',
-          'Regular review meetings'
+          'Monthly financial statement analysis',
+          'Ratio analysis and benchmarking',
+          'Trend analysis and variance reporting',
+          'Custom financial dashboards',
+          'Performance metrics tracking',
+          'Executive summary reports'
         ],
         benefits: [
-          'Improved financial control',
-          'Better decision making',
-          'Enhanced business planning',
-          'Risk mitigation',
-          'Performance tracking',
-          'Growth planning'
+          'Deep financial insights',
+          'Performance benchmarking',
+          'Trend identification',
+          'Strategic decision support'
         ],
         process: [
-          'Historical analysis and assessment',
-          'Goal setting and planning',
-          'Budget model development',
-          'Review and refinement',
-          'Implementation and monitoring',
-          'Regular updates and adjustments'
+          'Data collection and validation',
+          'Analysis and interpretation',
+          'Report generation',
+          'Presentation and discussion'
         ],
         deliverables: [
-          'Comprehensive annual budget',
-          'Monthly variance reports',
-          'Cash flow projections',
+          'Monthly analysis reports',
           'Financial dashboards',
-          'KPI tracking reports',
-          'Strategic recommendations'
+          'KPI scorecards',
+          'Executive summaries'
         ],
         industries: [
-          'Professional Services',
-          'Technology Startups',
-          'Healthcare Practices',
-          'Retail Businesses',
+          'Technology',
+          'Healthcare',
           'Manufacturing',
-          'Non-profit Organizations'
+          'Professional Services'
         ]
       }
     ]
   },
   {
+    id: 'transactional',
+    title: 'Transactional Advisory',
+    description: 'Expert advisory services for mergers, acquisitions, and complex business transactions.',
+    icon: '🤝',
+    color: '#FF6B35',
+    image: '/services/business.jpg',
+    overview: 'Our transactional advisory services help companies navigate complex deals, from M&A to restructuring, ensuring optimal outcomes for all stakeholders.',
+    features: [
+      'Mergers & Acquisitions (M&A)',
+      'Commercial Due Diligence',
+      'Valuation (Pre-IPO, Business & Startups)',
+      'Investor Documentation & Pitch Decks',
+      'Restructuring & Turnaround',
+      'Deal Execution & Post-Merger Integration'
+    ],
+    benefits: [
+      'Successful deal execution',
+      'Risk mitigation',
+      'Value maximization',
+      'Strategic transaction support'
+    ],
+    process: [
+      'Transaction planning and strategy',
+      'Due diligence and valuation',
+      'Documentation and negotiation',
+      'Deal closing and integration'
+    ],
+    subServices: []
+  },
+  {
     id: 'investment',
-    title: 'Investment Research',
+    title: 'Investment Research & Advisory',
     description: 'Professional investment research and analysis services for informed decision making.',
     icon: '📈',
     color: '#7B68EE',
     image: '/services/investment.jpg',
     overview: 'Our investment research services provide comprehensive analysis and insights to support your investment decisions and portfolio management strategies.',
     features: [
-      'Equity research and analysis',
-      'Market trend analysis',
-      'Portfolio optimization',
-      'Risk assessment',
-      'ESG analysis',
-      'Performance reporting'
+      'Market & Sector Analysis',
+      'Equity & Bond Research',
+      'ESG & Sustainability Analysis',
+      'Portfolio & Wealth Advisory',
+      'Corporate Investment Advisory',
+      'Risk & Return Assessment'
     ],
     benefits: [
       'Data-driven investment decisions',
@@ -282,32 +236,32 @@ export const services: Service[] = [
     subServices: []
   },
   {
-    id: 'business',
-    title: 'Business Advisory',
-    description: 'Strategic business consulting services to drive growth and operational excellence.',
-    icon: '🤝',
-    color: '#FF6B35',
-    image: '/services/business.jpg',
-    overview: 'Our business advisory services help companies navigate complex challenges, identify growth opportunities, and implement strategic solutions for sustainable success.',
+    id: 'analytics',
+    title: 'Data-Driven Insights & Analytics',
+    description: 'Advanced analytics and business intelligence solutions for data-driven decision making.',
+    icon: '📊',
+    color: '#20B2AA',
+    image: '/services/financial.jpg',
+    overview: 'Our data analytics services transform your business data into actionable insights through advanced analytics, dashboards, and predictive modeling.',
     features: [
-      'Strategic planning',
-      'M&A advisory',
-      'Due diligence',
-      'Business valuation',
-      'Operational improvement',
-      'Change management'
+      'Financial & Business Dashboards',
+      'Market & Industry Benchmarking Dashboards',
+      'Predictive Analytics & Future Trend Modeling',
+      'Automated Reporting Solutions',
+      'Scenario Planning & What-If Analysis',
+      'Automated Data Cleaning & Integration'
     ],
     benefits: [
-      'Strategic clarity and direction',
-      'Improved operational efficiency',
-      'Enhanced market position',
-      'Sustainable growth strategies'
+      'Real-time business insights',
+      'Predictive capabilities',
+      'Automated reporting',
+      'Data-driven decision making'
     ],
     process: [
-      'Business assessment and analysis',
-      'Strategy development',
-      'Implementation planning',
-      'Execution support and monitoring'
+      'Data assessment and strategy',
+      'Dashboard and analytics development',
+      'Implementation and training',
+      'Ongoing support and optimization'
     ],
     subServices: []
   }

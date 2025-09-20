@@ -1,7 +1,7 @@
 "use client"
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Calculator, TrendingUp, BarChart3, Handshake } from 'lucide-react';
+import { Calculator, TrendingUp, BarChart3,BarChart, Handshake } from 'lucide-react';
 
 const AreasOfFocus = () => {
   const focusAreas = [
@@ -15,7 +15,7 @@ const AreasOfFocus = () => {
       icon:TrendingUp,
       title: " Financial Services", 
       description: "Expert guidance on investment opportunities and portfolio management",
-      color: '#545454' 
+      color: '#4DC6D7'
     },
     {
       icon: BarChart3,
@@ -27,8 +27,15 @@ const AreasOfFocus = () => {
       icon: Handshake,
       title: "Investment research & Advisory",
       description: "Strategic tax planning to maximize your financial efficiency",
-       color: '#545454'
-    }
+      color: '#4DC6D7'
+    },
+   {
+  icon: BarChart,
+  title: "Data-Driven Insights & Analytics",
+  description: "Leverage advanced analytics to uncover opportunities, optimize strategies, and guide informed decisions.",
+      color: '#4DC6D7'
+}
+
   ];
 
   return (
@@ -48,12 +55,12 @@ const AreasOfFocus = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ amount: 0.3 }}
           >
-            Areas Of Focus
+            What We Offer
           </motion.h2>
           
           {/* Focus Areas Grid */}
           <motion.div 
-            className="grid md:grid-cols-4 gap-20 max-w-4xl mx-auto"
+            className="grid  grid-cols-3 md:grid-cols-3 gap-20 max-w-4xl mx-auto"
             initial="hidden"
             whileInView="visible"
             viewport={{ amount: 0.2 }}

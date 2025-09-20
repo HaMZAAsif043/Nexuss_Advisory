@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import SwipeableText from "./SwipeableText";
+import MiniCalendar from "./MiniCalendar";
 
 const HeroSection = () => {
   return (
@@ -151,6 +152,11 @@ const HeroSection = () => {
             </motion.div>
           </motion.div>
         </div>
+      </div>
+
+      {/* Mini Calendar - Bottom Right */}
+      <div className="absolute bottom-8 right-8 z-20 hidden lg:block">
+        <MiniCalendar />
       </div>
     </section>
   );
