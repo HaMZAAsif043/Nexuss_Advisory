@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import BlogList from '@/components/Blog/BlogList';
 import BlogForm from '@/components/Blog/BlogForm';
 import BlogDetail from '@/components/Blog/BlogDetail';
-import { Plus, X } from 'lucide-react';
+import { Plus} from 'lucide-react';
 
 export interface BlogPost {
   id: string;
