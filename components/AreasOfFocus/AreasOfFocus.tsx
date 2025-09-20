@@ -6,7 +6,6 @@ import {
   ChartNoAxesCombined,
   BarChart3,
   BarChart,
-  Handshake,
   ChartCandlestick
 } from "lucide-react";
  
