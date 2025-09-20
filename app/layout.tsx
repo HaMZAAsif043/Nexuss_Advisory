@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 
 const merriw = Merriweather({
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["400", "700"], // ✅ strong headings
   variable: "--font-merriweather",
 });
 
@@ -34,11 +34,12 @@ export const metadata: Metadata = {
   description:
     "Nexuss Advisory provides expert financial advisory services, helping businesses and individuals achieve sustainable growth, smarter investments, and long-term success.",
   icons: {
-    icon:"/favicon-32x32.png"
-      // { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      // { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-    //   { url: "/favicon.ico" },
-    // apple: "/apple-touch-icon.png",
+    icon: [
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" ,rel: "icon"},
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png",rel: "icon" },
+      { url: "/favicon.ico",rel: "icon" },
+    ],
+    apple: "/apple-touch-icon.png",
   },
   openGraph: {
     title: "Nexuss Advisory",
