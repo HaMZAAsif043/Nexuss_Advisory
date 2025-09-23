@@ -104,12 +104,12 @@ const AreasOfFocus = () => {
                 </motion.div>
 
                 {/* Title with fixed height */}
-                <h3 className="text-xl font-semibold text-[#545454] mb-2 group-hover:text-[#4DC6D7] transition-colors duration-300 min-h-[56px] flex items-center justify-center">
+                <h3 className="text-xl font-semibold text-[#545454] mb-2 group-hover:text-[#4DC6D7] transition-colors duration-300 min-h-[70px] flex items-start justify-center text-center leading-tight">
                   {area.title}
                 </h3>
 
                 {/* Description with fixed height */}
-                <p className="text-[#545454]/80 group-hover:text-[#545454]/90 transition-colors duration-300 min-h-[72px] flex items-center justify-center">
+                <p className="text-[#545454]/80 group-hover:text-[#545454]/90 transition-colors duration-300 min-h-[72px] flex items-start justify-center text-center leading-relaxed">
                   {area.description}
                 </p>
               </motion.div>

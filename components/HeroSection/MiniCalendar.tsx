@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 const MiniCalendar = () => {
   const [currentDate] = useState(new Date());
@@ -45,12 +45,45 @@ const MiniCalendar = () => {
     );
   };
 
+  // Framer Motion variants
+  const containerVariants: Variants = {
+    hidden: { opacity: 0, y: 12, scale: 0.98 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { when: 'beforeChildren', staggerChildren: 0.03, delayChildren: 0.15 }
+    }
+  };
+
+  const dayVariants: Variants = {
+    hidden: { opacity: 0, y: 6, scale: 0.95 },
+    visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.28, ease: 'easeOut' } },
+    hover: { 
+      scale: 1.08, 
+      y: -6, 
+      rotate: 2,
+      transition: { duration: 0.18, ease: "easeOut" } 
+    },
+    tap: { scale: 0.96, rotate: -1, transition: { duration: 0.08 } }
+  };
+
   return (
     <motion.div
       className="bg-white/10 backdrop-blur-md rounded-xl border border-white/20 p-6 shadow-xl"
-      initial={{ opacity: 0, scale: 0.8, y: 20 }}
-      animate={{ opacity: 1, scale: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: 1.2 }}
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      whileHover={{ 
+        scale: 1.02, 
+        rotate: 1,
+        boxShadow: "0 20px 40px rgba(77, 198, 215, 0.3), 0 8px 16px rgba(0, 0, 0, 0.15)"
+      }}
+      whileTap={{ scale: 0.98, rotate: -0.5 }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
+      style={{
+        filter: 'drop-shadow(0 4px 12px rgba(77, 198, 215, 0.2))'
+      }}
     >
       {/* Calendar Header */}
       <div className="mb-4">
@@ -76,18 +109,38 @@ const MiniCalendar = () => {
         {days.map((day, index) => (
           <motion.div
             key={index}
+            variants={dayVariants}
+            whileHover={day ? 'hover' : ''}
+            whileTap={day ? 'tap' : ''}
+            tabIndex={day ? 0 : -1}
+            role={day ? 'button' : undefined}
+            aria-disabled={!day}
+            animate={isToday(day) ? {
+              scale: [1, 1.05, 1],
+              boxShadow: [
+                "0 0 0 rgba(77, 198, 215, 0)",
+                "0 0 20px rgba(77, 198, 215, 0.6)",
+                "0 0 0 rgba(77, 198, 215, 0)"
+              ]
+            } : undefined}
+            transition={isToday(day) ? {
+              duration: 2,
+              repeat: Infinity,
+              ease: "easeInOut"
+            } : undefined}
             className={`
-              h-10 w-10 flex items-center justify-center text-sm rounded-lg
+              h-10 w-10 flex items-center justify-center text-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4DC6D7]/60
               transition-all duration-200
               ${day 
                 ? isToday(day)
                   ? "bg-[#4DC6D7] text-white font-bold shadow-lg" 
-                  : "text-white/80 hover:bg-white/10 hover:text-white cursor-pointer"
+                  : "text-white/80 hover:bg-white/10 hover:text-white cursor-pointer hover:shadow-lg hover:shadow-[#4DC6D7]/30"
                 : ""
               }
             `}
-            whileHover={day ? { scale: 1.1 } : {}}
-            whileTap={day ? { scale: 0.95 } : {}}
+            style={day && !isToday(day) ? {
+              filter: 'drop-shadow(0 2px 4px rgba(77, 198, 215, 0.1))'
+            } : undefined}
           >
             {day}
           </motion.div>
