@@ -1,23 +1,11 @@
 "use client"
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  MessageCircle, 
-  X, 
-  Send, 
-  Bot, 
-  User, 
-  Minimize2, 
-  Calculator,
-  TrendingUp,
-  BarChart3,
-  Handshake,
-  Phone,
-  Mail,
-  Sparkles
-} from 'lucide-react';
+import { MessageCircle, Sparkles } from 'lucide-react';
 import axios from 'axios';
-import { preprocessBotReply } from '@/utils/textProcessing';
+import ChatbotHeader from './ChatbotHeader';
+import ChatbotMessages from './ChatbotMessages';
+import ChatbotInput from './ChatbotInput';
 
 interface Message {
   id: string;
@@ -33,24 +21,27 @@ const Chatbot = () => {
     {
       id: '1',
       type: 'bot',
-      content: `Hello! I'm your **Nexuss Advisory AI assistant**. 
+      content: `Hello! I'm Maddy, Nexuss Advisory's AI assistant 
 
-## How can I help you today?
+How I can help:
 
-I can provide information about our services:
+Accounting & Bookkeeping – QuickBooks, reconciliations
 
-### Core Services
-- **Accounting & BookKeeping** - QuickBooks setup, monthly reconciliation
-- **Financial Services** - Budgeting, cash flow analysis  
-- **Investment Research** - Portfolio optimization, market analysis
-- **Business Advisory** - Strategic planning, M&A support
+Financial Services – Budgeting, cash flow
 
-### Quick Actions
-1. Ask about our services
-2. Schedule a consultation  
-3. Get pricing information
+Investment Research – Portfolio & market insights
 
-*Feel free to ask me anything about financial advisory services!*`,
+Business Advisory – Strategy, M&A
+
+Quick Actions:
+
+Learn about services
+
+Book a consultation
+
+Request pricing
+
+Ask me anything about financial advisory services!`,
       timestamp: new Date()
     }
   ]);
@@ -86,20 +77,52 @@ I can provide information about our services:
         context: 'Nexuss Advisory - Financial Advisory Services'
       });
 
+      // Process and clean the bot response
+      let botResponseContent = response.data.message || 'I received your message but couldn\'t generate a proper response.';
+      
+      // Clean up common AI response artifacts
+      botResponseContent = botResponseContent
+        .replace(/^(Assistant:|AI:|Bot:)\s*/i, '') // Remove AI prefixes
+        .replace(/\n{3,}/g, '\n\n') // Limit consecutive line breaks
+        .replace(/^\s+|\s+$/g, '') // Trim whitespace
+        .replace(/\*{3,}/g, '**') // Fix excessive asterisks
+        .replace(/_{3,}/g, '__'); // Fix excessive underscores
+
+      // Add helpful context for financial queries
+      if (inputValue.toLowerCase().includes('service') || inputValue.toLowerCase().includes('help')) {
+        botResponseContent += '\n\n💡 **Need more specific help?**\n- Click on service buttons above\n- Ask about pricing or consultation\n- Request our contact information';
+      }
+
       const botMessage: Message = {
         id: (Date.now() + 1).toString(),
         type: 'bot',
-        content: response.data.message,
+        content: botResponseContent,
         timestamp: new Date()
       };
 
       setMessages(prev => [...prev, botMessage]);
     } catch (error) {
       console.error('Error sending message:', error);
+      
+      // Enhanced error message with helpful suggestions
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
         type: 'bot',
-        content: 'I apologize, but I\'m having trouble connecting right now. Please try again later or contact us directly.',
+        content: `🔄 **Connection Issue**
+
+I apologize, but I'm having trouble connecting right now. Here's what you can do:
+
+**Immediate Help:**
+• Call us: **+92 329 6395813**
+• Email: **info@nexussadvisory.com**
+
+**Or try asking about:**
+• Our accounting services
+• Financial planning options  
+• Investment research
+• Business advisory
+
+Please try your question again in a moment.`,
         timestamp: new Date()
       };
       setMessages(prev => [...prev, errorMessage]);
@@ -115,13 +138,6 @@ I can provide information about our services:
     }
   };
 
-  const formatTime = (date: Date) => {
-    return date.toLocaleTimeString('en-US', { 
-      hour: '2-digit', 
-      minute: '2-digit' 
-    });
-  };
-
   return (
     <>
       <AnimatePresence>
@@ -133,7 +149,7 @@ I can provide information about our services:
             exit={{ scale: 0, opacity: 0 }}
           >
             {/* Pulse animation ring */}
-            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#4DC6D7] to-[#545454] animate-ping opacity-75"></div>
+            <div className="absolute cursor-pointer inset-0 rounded-full bg-gradient-to-r from-[#4DC6D7] to-[#545454] animate-ping opacity-75"></div>
             
             {/* Main button */}
             <motion.button
@@ -176,220 +192,32 @@ I can provide information about our services:
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
             className="fixed h-screen bottom-6 right-6 z-50 w-96 bg-white rounded-2xl shadow-2xl overflow-hidden border border-[#4DC6D7]/30 backdrop-blur-sm flex flex-col"
           >
-            {/* Enhanced Header */}
-            <div className="bg-gradient-to-r from-[#4DC6D7] via-[#3bb5c6] to-[#545454] p-4 text-white relative overflow-hidden">
-              {/* Background pattern */}
-              <div className="absolute inset-0 opacity-10">
-                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/20 to-transparent"></div>
-              </div>
-              
-              <div className="relative z-10 flex items-center justify-between">
-                <div className="flex items-center space-x-3">
-                  <div className="relative">
-                    <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center border border-white/30">
-                      <Bot className="w-7 h-7" />
-                    </div>
-                    {/* Online indicator */}
-                    <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-white animate-pulse"></div>
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-lg">Maddy</h3>
-                    <div className="flex items-center space-x-1">
-                      <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                      <p className="text-white/90 text-sm">Online • Ready to help</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <motion.button
-                    whileHover={{ scale: 1.1, backgroundColor: 'rgba(255,255,255,0.2)' }}
-                    whileTap={{ scale: 0.9 }}
-                    onClick={() => setIsMinimized(!isMinimized)}
-                    className="p-2 rounded-xl transition-all duration-200 hover:bg-white/20"
-                  >
-                    <Minimize2 className="w-5 h-5" />
-                  </motion.button>
-                  <motion.button
-                    whileHover={{ scale: 1.1, backgroundColor: 'rgba(255,255,255,0.2)' }}
-                    whileTap={{ scale: 0.9 }}
-                    onClick={() => setIsOpen(false)}
-                    className="p-2 rounded-xl transition-all duration-200 hover:bg-white/20"
-                  >
-                    <X className="w-5 h-5" />
-                  </motion.button>
-                </div>
-              </div>
-            </div>
+            {/* Header Component */}
+            <ChatbotHeader
+              isMinimized={isMinimized}
+              setIsMinimized={setIsMinimized}
+              setIsOpen={setIsOpen}
+            />
 
-            {/* Enhanced Chat Content */}
+            {/* Chat Content */}
             {!isMinimized && (
               <>
-                {/* Quick Service Cards */}
-                <div className="flex-shrink-0 bg-gradient-to-r from-gray-50 to-white p-4 border-b border-gray-100">
-                  <div className="grid grid-cols-4 gap-2">
-                    {[
-                      { icon: Calculator, label: 'Accounting', color: '#4DC6D7' },
-                      { icon: TrendingUp, label: 'Financial', color: '#545454' },
-                      { icon: BarChart3, label: 'Investment', color: '#4DC6D7' },
-                      { icon: Handshake, label: 'Advisory', color: '#545454' }
-                    ].map((service) => (
-                      <motion.button
-                        key={service.label}
-                        whileHover={{ scale: 1.05, y: -2 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="flex flex-col items-center p-2 rounded-xl bg-white shadow-sm hover:shadow-md transition-all duration-200 border border-gray-100"
-                        onClick={() => setInputValue(`Tell me about ${service.label} services`)}
-                      >
-                        <service.icon 
-                          className="w-5 h-5 mb-1" 
-                          style={{ color: service.color }} 
-                        />
-                        <span className="text-xs text-[#545454] font-medium">{service.label}</span>
-                      </motion.button>
-                    ))}
-                  </div>
-                </div>
+                {/* Messages Component */}
+                <ChatbotMessages
+                  messages={messages}
+                  isLoading={isLoading}
+                  messagesEndRef={messagesEndRef}
+                  setInputValue={setInputValue}
+                />
 
-                {/* Enhanced Messages */}
-                <div className="flex-1 max-h-80 overflow-y-auto p-4 space-y-4 bg-gradient-to-b from-gray-50/50 to-white custom-scrollbar">
-                  {messages.map((message) => (
-                    <motion.div
-                      key={message.id}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}
-                    >
-                      <div className={`flex items-start space-x-3 max-w-xs ${message.type === 'user' ? 'flex-row-reverse space-x-reverse' : ''}`}>
-                        <div className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 shadow-md ${
-                          message.type === 'user' 
-                            ? 'bg-gradient-to-br from-[#545454] to-[#454545] text-white' 
-                            : 'bg-gradient-to-br from-[#4DC6D7] to-[#3bb5c6] text-white'
-                        }`}>
-                          {message.type === 'user' ? (
-                            <User className="w-5 h-5" />
-                          ) : (
-                            <Bot className="w-5 h-5" />
-                          )}
-                        </div>
-                        <div className={`rounded-2xl p-4 relative ${
-                          message.type === 'user'
-                            ? 'bg-gradient-to-br from-[#545454] to-[#454545] text-white rounded-br-sm shadow-lg'
-                            : 'bg-white text-[#545454] rounded-bl-sm shadow-lg border border-gray-100'
-                        }`}>
-                          {/* Message tail */}
-                          <div className={`absolute ${
-                            message.type === 'user' 
-                              ? 'bottom-0 right-0 transform translate-x-1 translate-y-1 w-0 h-0 border-l-8 border-t-8 border-l-transparent border-t-[#454545]'
-                              : 'bottom-0 left-0 transform -translate-x-1 translate-y-1 w-0 h-0 border-r-8 border-t-8 border-r-transparent border-t-white'
-                          }`}></div>
-                          
-                          {/* Enhanced message content with HTML support for bot messages */}
-                          {message.type === 'bot' ? (
-                            <div 
-                              className="text-sm leading-relaxed"
-                              dangerouslySetInnerHTML={{ 
-                                __html: preprocessBotReply(message.content) 
-                              }}
-                            />
-                          ) : (
-                            <p className="text-sm leading-relaxed whitespace-pre-wrap">{message.content}</p>
-                          )}
-                          
-                          <p className={`text-xs mt-2 ${
-                            message.type === 'user' ? 'text-white/70' : 'text-[#545454]/50'
-                          }`}>
-                            {formatTime(message.timestamp)}
-                          </p>
-                        </div>
-                      </div>
-                    </motion.div>
-                  ))}
-                  
-                  {/* Enhanced Loading indicator */}
-                  {isLoading && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className="flex justify-start"
-                    >
-                      <div className="flex items-start space-x-3 max-w-xs">
-                        <div className="w-10 h-10 bg-gradient-to-br from-[#4DC6D7] to-[#3bb5c6] rounded-full flex items-center justify-center shadow-md">
-                          <Bot className="w-5 h-5 text-white" />
-                        </div>
-                        <div className="bg-white rounded-2xl rounded-bl-sm p-4 shadow-lg border border-gray-100">
-                          <div className="flex space-x-2 items-center">
-                            <div className="flex space-x-1">
-                              <div className="w-2 h-2 bg-[#4DC6D7] rounded-full animate-bounce"></div>
-                              <div className="w-2 h-2 bg-[#4DC6D7] rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                              <div className="w-2 h-2 bg-[#4DC6D7] rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
-                            </div>
-                            <span className="text-xs text-[#545454]/60 ml-2">AI is thinking...</span>
-                          </div>
-                        </div>
-                      </div>
-                    </motion.div>
-                  )}
-                  <div ref={messagesEndRef} />
-                </div>
-
-                {/* Enhanced Input Section */}
-                <div className="flex-shrink-0 p-4 bg-white border-t-2 border-[#4DC6D7]/20 rounded-b-2xl">
-                  {/* Quick Contact Info */}
-                  <div className="flex items-center justify-center space-x-6 mb-3 pb-3 border-b border-gray-200">
-                    <div className="flex items-center space-x-2 text-xs text-[#545454]/70">
-                      <Phone className="w-3 h-3 text-[#4DC6D7]" />
-                      <span>+92 329 6395813</span>
-                    </div>
-                    <div className="flex items-center space-x-2 text-xs text-[#545454]/70">
-                      <Mail className="w-3 h-3 text-[#4DC6D7]" />
-                      <span>info@nexussadvisory.com</span>
-                    </div>
-                  </div>
-
-                  <div className="flex items-end space-x-3">
-                    <div className="flex-1 relative">
-                      <textarea
-                        value={inputValue}
-                        onChange={(e) => setInputValue(e.target.value)}
-                        onKeyPress={handleKeyPress}
-                        placeholder="Ask about our financial services..."
-                        className="w-full p-3 pr-4 border-2 border-[#545454]/20 rounded-xl focus:border-[#4DC6D7] focus:outline-none resize-none text-[#545454] text-sm placeholder-[#545454]/50 transition-all duration-200 bg-white"
-                        rows={1}
-                        disabled={isLoading}
-                        style={{ minHeight: '44px', maxHeight: '120px' }}
-                      />
-                      {/* Character counter for long messages */}
-                      {inputValue.length > 100 && (
-                        <div className="absolute bottom-1 right-2 text-xs text-[#545454]/40">
-                          {inputValue.length}/500
-                        </div>
-                      )}
-                    </div>
-                    <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      onClick={sendMessage}
-                      disabled={!inputValue.trim() || isLoading}
-                      className={`p-3 rounded-xl transition-all duration-200 flex items-center justify-center ${
-                        inputValue.trim() && !isLoading
-                          ? 'bg-gradient-to-r from-[#4DC6D7] to-[#545454] text-white shadow-lg hover:shadow-xl'
-                          : 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                      }`}
-                    >
-                      {isLoading ? (
-                        <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                      ) : (
-                        <Send className="w-4 h-4" />
-                      )}
-                    </motion.button>
-                  </div>
-                  
-                  <div className="flex items-center justify-center mt-3 text-xs text-[#545454]/50">
-                    <Sparkles className="w-3 h-3 mr-1 text-[#4DC6D7]" />
-                    <span>Powered by Nexuss Advisory AI • Secure & Confidential</span>
-                  </div>
-                </div>
+                {/* Input Component */}
+                <ChatbotInput
+                  inputValue={inputValue}
+                  setInputValue={setInputValue}
+                  sendMessage={sendMessage}
+                  isLoading={isLoading}
+                  handleKeyPress={handleKeyPress}
+                />
               </>
             )}
           </motion.div>
