@@ -78,8 +78,8 @@ const AboutPage = () => {
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.8 }}
             >
-              <h1 className="text-4xl md:text-6xl font-bold mb-6">
-                About Nexuss Advisory
+              <h1 className="text-4xl capitalize md:text-6xl font-bold mb-6">
+                what we do
               </h1>
               <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
                 Creating long-term value with entrepreneurial intelligence. 

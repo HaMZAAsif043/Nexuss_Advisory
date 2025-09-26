@@ -15,35 +15,35 @@ const AreasOfFocus = () => {
       icon: Calculator,
       title: "Accounting & Compliance",
       description:
-        "Comprehensive financial strategies tailored to your goals",
+        "Reliable financial reporting and compliance solutions that ensure transparency and trust.",
       color: "#0798B1",
     },
     {
       icon: ChartNoAxesCombined ,
       title: "Financial Services",
       description:
-        "Expert guidance on investment opportunities and portfolio management",
+        "Tailored financial strategies to optimize growth, stability, and efficiency.",
       color: "#4DC6D7",
     },
     {
       icon: Handshake,
       title: "Transactional Advisory",
       description:
-        "Strategic tax planning to maximize your financial efficiency",
+        "Expert guidance to navigate mergers, acquisitions, and complex deals with confidence.",
       color: "#4DC6D7",
     },
     {
       icon: ChartCandlestick,
       title: "Investment Research & Advisory",
       description:
-        "Objective research and advisory to help optimize your investment strategies",
+        "Independent research and strategic advisory to support informed investment decisions.",
       color: "#4DC6D7",
     },
     {
       icon: LaptopMinimalCheck,
       title: "Data-Driven Insights & Analytics",
       description:
-        "Leverage advanced analytics to uncover opportunities, optimize strategies, and guide informed decisions.",
+        "Transforming raw data into actionable intelligence for business success.",
       color: "#4DC6D7",
     },
   ];
