@@ -57,8 +57,8 @@ const HeroSection = () => {
             <div className="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight mb-6">
               <SwipeableText
                 texts={[
-                  "Where Financial Expertise Meets Strategic Innovation",
                   "Navigate the complexities of modern business with confidence.",
+                  "Where Financial Expertise Meets Strategic Innovation",
                 ]}
                 className="bg-gradient-to-r text-white from-white to-white bg-clip-text"
               />

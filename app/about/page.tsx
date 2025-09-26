@@ -1,8 +1,8 @@
-"use client"
-import React from 'react';
-import { motion } from 'framer-motion';
-import Image from 'next/image';
-import {  Target, Heart, Shield, Globe } from 'lucide-react';
+"use client";
+import React from "react";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { Target, Heart, Shield, Globe } from "lucide-react";
 
 const AboutPage = () => {
   // const stats = [
@@ -16,56 +16,68 @@ const AboutPage = () => {
     {
       icon: Shield,
       title: "Trust & Integrity",
-      description: "We build lasting relationships through transparent, honest communication and ethical business practices."
+      description:
+        "We build lasting relationships through transparent, honest communication and ethical business practices.",
     },
     {
       icon: Target,
       title: "Client-Focused",
-      description: "Your financial success is our primary goal. We tailor our services to meet your unique needs and objectives."
+      description:
+        "Your financial success is our primary goal. We tailor our services to meet your unique needs and objectives.",
     },
     {
       icon: Heart,
       title: "Passion for Excellence",
-      description: "We're passionate about delivering exceptional results and exceeding client expectations in everything we do."
+      description:
+        "We're passionate about delivering exceptional results and exceeding client expectations in everything we do.",
     },
     {
       icon: Globe,
       title: "Innovation",
-      description: "We leverage cutting-edge technology and innovative strategies to provide you with the best financial solutions."
-    }
+      description:
+        "We leverage cutting-edge technology and innovative strategies to provide you with the best financial solutions.",
+    },
   ];
 
   const team = [
     {
       name: "Madiha Asif",
       position: "Founder & CEO",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b977?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
-      description: "10+ years of experience in financial planning and investment management."
+      image:
+        "https://images.unsplash.com/photo-1494790108755-2616b612b977?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
+      description:
+        "10+ years of experience in financial planning and investment management.",
     },
     {
       name: "Michael Chen",
       position: "Chief Financial Officer",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-      description: "Expert in corporate finance with a track record of successful business transformations."
+      image:
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+      description:
+        "Expert in corporate finance with a track record of successful business transformations.",
     },
     {
       name: "Emily Rodriguez",
       position: "Senior Investment Advisor",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-      description: "Specialized in portfolio management and wealth preservation strategies."
+      image:
+        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+      description:
+        "Specialized in portfolio management and wealth preservation strategies.",
     },
     {
       name: "David Park",
       position: "Head of Business Advisory",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
-      description: "Leading strategic consulting initiatives for small and medium enterprises."
-    }
+      image:
+        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
+      description:
+        "Leading strategic consulting initiatives for small and medium enterprises.",
+    },
   ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
       {/* Hero Section */}
-      <motion.section 
+      <motion.section
         className="relative bg-gradient-to-r from-[#545454] to-[#4DC6D7] text-white py-24"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -79,13 +91,18 @@ const AboutPage = () => {
               transition={{ delay: 0.2, duration: 0.8 }}
             >
               <h1 className="text-4xl capitalize md:text-6xl font-bold mb-6">
-                what we do
+                who we are
               </h1>
-              <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
-                Creating long-term value with entrepreneurial intelligence. 
-                Our main goal is sustainable growth for your financial future.
+              <p className="text-lg md:text-2xl text-white/90 mb-8 leading-relaxed">
+                Nexuss Advisory is a financial advisory firm dedicated to
+                helping businesses, investors, and entrepreneurs make confident
+                decisions by providing them with smart financial solutions,
+                insightful research and data-driven strategies. With expertise
+                in investment, valuation, and analytics, we provide solutions
+                that bring clarity, strengthen performance, and create
+                long-term value.
               </p>
-              <motion.div 
+              <motion.div
                 className="flex flex-wrap gap-4"
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -99,7 +116,7 @@ const AboutPage = () => {
                 </button>
               </motion.div>
             </motion.div>
-            
+
             <motion.div
               className="relative"
               initial={{ x: 50, opacity: 0 }}
@@ -169,7 +186,7 @@ const AboutPage = () => {
                 />
               </div>
             </motion.div>
-            
+
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -181,20 +198,25 @@ const AboutPage = () => {
               </h2>
               <div className="space-y-6 text-white/80 leading-relaxed">
                 <p>
-                  Founded in 2010, Nexuss Advisory began with a simple mission: to provide exceptional 
-                  financial guidance that empowers individuals and businesses to achieve their dreams. 
-                  What started as a small consulting firm has grown into a comprehensive financial 
-                  services company trusted by hundreds of clients.
+                  Founded in 2010, Nexuss Advisory began with a simple mission:
+                  to provide exceptional financial guidance that empowers
+                  individuals and businesses to achieve their dreams. What
+                  started as a small consulting firm has grown into a
+                  comprehensive financial services company trusted by hundreds
+                  of clients.
                 </p>
                 <p>
-                  Our journey has been marked by continuous innovation, unwavering commitment to our 
-                  clients, and a deep understanding that every financial situation is unique. We&apos;ve 
-                  weathered market storms, celebrated client successes, and constantly evolved our 
-                  services to meet the changing needs of the financial landscape.
+                  Our journey has been marked by continuous innovation,
+                  unwavering commitment to our clients, and a deep understanding
+                  that every financial situation is unique. We&apos;ve weathered
+                  market storms, celebrated client successes, and constantly
+                  evolved our services to meet the changing needs of the
+                  financial landscape.
                 </p>
                 <p>
-                  Today, we&apos;re proud to be a leading voice in financial advisory services, combining 
-                  traditional wisdom with cutting-edge technology to deliver results that matter.
+                  Today, we&apos;re proud to be a leading voice in financial
+                  advisory services, combining traditional wisdom with
+                  cutting-edge technology to deliver results that matter.
                 </p>
               </div>
             </motion.div>
@@ -205,7 +227,7 @@ const AboutPage = () => {
       {/* Values Section */}
       <section className="py-16 ">
         <div className="container mx-auto px-4">
-          <motion.div 
+          <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -216,7 +238,8 @@ const AboutPage = () => {
               Our Core Values
             </h2>
             <p className="text-[#545454]/80 max-w-3xl mx-auto text-lg">
-              These fundamental principles guide every decision we make and every relationship we build.
+              These fundamental principles guide every decision we make and
+              every relationship we build.
             </p>
           </motion.div>
 
@@ -234,8 +257,12 @@ const AboutPage = () => {
                 <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
                   <value.icon className="w-8 h-8 text-[#4DC6D7]" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-4">{value.title}</h3>
-                <p className="text-white/80 leading-relaxed">{value.description}</p>
+                <h3 className="text-xl font-bold text-white mb-4">
+                  {value.title}
+                </h3>
+                <p className="text-white/80 leading-relaxed">
+                  {value.description}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -245,7 +272,7 @@ const AboutPage = () => {
       {/* Team Section */}
       <section className="py-16 bg-[#545454]/5">
         <div className="container mx-auto px-4">
-          <motion.div 
+          <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -256,7 +283,8 @@ const AboutPage = () => {
               Meet Our Leadership Team
             </h2>
             <p className="text-[#545454]/80 max-w-3xl mx-auto text-lg">
-              Our experienced team of financial experts is dedicated to helping you achieve your goals.
+              Our experienced team of financial experts is dedicated to helping
+              you achieve your goals.
             </p>
           </motion.div>
 
@@ -280,9 +308,15 @@ const AboutPage = () => {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-[#545454] mb-2">{member.name}</h3>
-                  <p className="text-[#4DC6D7] font-medium mb-3">{member.position}</p>
-                  <p className="text-[#545454]/80 text-sm leading-relaxed">{member.description}</p>
+                  <h3 className="text-xl font-bold text-[#545454] mb-2">
+                    {member.name}
+                  </h3>
+                  <p className="text-[#4DC6D7] font-medium mb-3">
+                    {member.position}
+                  </p>
+                  <p className="text-[#545454]/80 text-sm leading-relaxed">
+                    {member.description}
+                  </p>
                 </div>
               </motion.div>
             ))}
@@ -291,7 +325,7 @@ const AboutPage = () => {
       </section>
 
       {/* Call to Action */}
-      <motion.section 
+      <motion.section
         className="py-16 bg-gradient-to-r from-[#4DC6D7] to-[#545454] text-white"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -299,7 +333,7 @@ const AboutPage = () => {
         viewport={{ amount: 0.3 }}
       >
         <div className="container mx-auto px-4 text-center">
-          <motion.h2 
+          <motion.h2
             className="text-3xl md:text-4xl font-bold mb-6"
             initial={{ y: 30, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
@@ -308,30 +342,31 @@ const AboutPage = () => {
           >
             Ready to Start Your Financial Journey?
           </motion.h2>
-          <motion.p 
+          <motion.p
             className="text-xl text-white/90 mb-8 max-w-3xl mx-auto"
             initial={{ y: 30, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
             viewport={{ amount: 0.3 }}
           >
-            Let&apos;s work together to create a financial strategy that aligns with your goals and secures your future.
+            Let&apos;s work together to create a financial strategy that aligns
+            with your goals and secures your future.
           </motion.p>
-          <motion.div 
+          <motion.div
             className="flex flex-col sm:flex-row gap-4 justify-center"
             initial={{ y: 30, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.6, duration: 0.8 }}
             viewport={{ amount: 0.3 }}
           >
-            <motion.button 
+            <motion.button
               className="bg-white text-[#545454] px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
               Schedule Consultation
             </motion.button>
-            <motion.button 
+            <motion.button
               className="border border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-[#545454] transition-all duration-300"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}

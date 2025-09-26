@@ -3,7 +3,7 @@ import HeroSection from '@/components/HeroSection/HeroSection';
 import AreasOfFocus from '@/components/AreasOfFocus/AreasOfFocus';
 import BusinessSection from '@/components/BusinessSection/BusinessSection';
 import AuditSection from '@/components/AuditSection/AuditSection';
-import ServicesGrid from '@/components/ServicesGrid/ServicesGrid';
+// import ServicesGrid from '@/components/ServicesGrid/ServicesGrid';
 import ArticlesSection from '@/components/ArticlesSection/ArticlesSection';
 
 const Page = () => {
@@ -13,7 +13,7 @@ const Page = () => {
       <AreasOfFocus />
       <BusinessSection />
       <AuditSection />
-      <ServicesGrid />
+      {/* <ServicesGrid /> */}
       <ArticlesSection />
     </div>
   );

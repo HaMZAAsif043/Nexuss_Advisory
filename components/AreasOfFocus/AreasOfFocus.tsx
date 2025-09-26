@@ -13,7 +13,7 @@ const AreasOfFocus = () => {
   const focusAreas = [
     {
       icon: Calculator,
-      title: "Accounting & Compliance",
+      title: "Accounting Compliance",
       description:
         "Reliable financial reporting and compliance solutions that ensure transparency and trust.",
       color: "#0798B1",
@@ -34,14 +34,14 @@ const AreasOfFocus = () => {
     },
     {
       icon: ChartCandlestick,
-      title: "Investment Research & Advisory",
+      title: "Investment Research Advisory",
       description:
         "Independent research and strategic advisory to support informed investment decisions.",
       color: "#4DC6D7",
     },
     {
       icon: LaptopMinimalCheck,
-      title: "Data-Driven Insights & Analytics",
+      title: "Data-Driven Insights Analytics",
       description:
         "Transforming raw data into actionable intelligence for business success.",
       color: "#4DC6D7",
@@ -104,12 +104,12 @@ const AreasOfFocus = () => {
                 </motion.div>
 
                 {/* Title with fixed height */}
-                <h3 className="text-xl font-semibold text-[#545454] mb-2 group-hover:text-[#4DC6D7] transition-colors duration-300 min-h-[70px] flex items-start justify-center text-center leading-tight">
+                <h3 className="text-xl font-semibold text-[#545454] mb-2 group-hover:text-[#4DC6D7] transition-colors duration-300 min-h-[50px] flex items-start justify-center text-center leading-tight">
                   {area.title}
                 </h3>
 
                 {/* Description with fixed height */}
-                <p className="text-[#545454]/80 group-hover:text-[#545454]/90 transition-colors duration-300 min-h-[72px] flex items-start justify-center text-center leading-relaxed">
+                <p className="text-[#545454]/80 group-hover:text-[#545454]/90 transition-colors duration-300 min-h-[72px] flex items-center justify-center text-justify leading-relaxed">
                   {area.description}
                 </p>
               </motion.div>
