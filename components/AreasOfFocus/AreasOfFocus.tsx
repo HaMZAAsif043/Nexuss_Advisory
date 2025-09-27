@@ -8,8 +8,9 @@ import {
   LaptopMinimalCheck,
   Handshake
 } from "lucide-react";
-  
+ import { useRouter } from "next/navigation"; 
 const AreasOfFocus = () => {
+  const router =useRouter()
   const focusAreas = [
     {
       icon: Calculator,
@@ -17,6 +18,7 @@ const AreasOfFocus = () => {
       description:
         "Reliable financial reporting and compliance solutions that ensure transparency and trust.",
       color: "#0798B1",
+      link:"services/accounting"
     },
     {
       icon: ChartNoAxesCombined ,
@@ -24,6 +26,8 @@ const AreasOfFocus = () => {
       description:
         "Tailored financial strategies to optimize growth, stability, and efficiency.",
       color: "#4DC6D7",
+            link:"services/financial"
+
     },
     {
       icon: Handshake,
@@ -31,6 +35,8 @@ const AreasOfFocus = () => {
       description:
         "Expert guidance to navigate mergers, acquisitions, and complex deals with confidence.",
       color: "#4DC6D7",
+            link:"services/transactional"
+
     },
     {
       icon: ChartCandlestick,
@@ -38,6 +44,7 @@ const AreasOfFocus = () => {
       description:
         "Independent research and strategic advisory to support informed investment decisions.",
       color: "#4DC6D7",
+      link:"services/investment"
     },
     {
       icon: LaptopMinimalCheck,
@@ -45,6 +52,7 @@ const AreasOfFocus = () => {
       description:
         "Transforming raw data into actionable intelligence for business success.",
       color: "#4DC6D7",
+      link:"services/analytics"
     },
   ];
 
@@ -91,6 +99,7 @@ const AreasOfFocus = () => {
                   visible: { opacity: 1, y: 0 },
                 }}
                 whileHover={{ y: -10 }}
+                onClick={() => router.push(area.link)}
                 transition={{ duration: 0.3 }}
               >
                 <motion.div

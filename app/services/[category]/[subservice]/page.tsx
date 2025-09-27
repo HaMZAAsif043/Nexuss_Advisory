@@ -65,7 +65,7 @@ const SubServicePage = ({ params }: SubServicePageProps) => {
                 <ArrowLeft className="w-4 h-4" />
                 <span>Back to {service.title}</span>
               </Link>
-              
+{/*               
               <div className="flex items-center justify-center mb-6">
                 <div 
                   className="w-20 h-20 rounded-full flex items-center justify-center"
@@ -73,7 +73,7 @@ const SubServicePage = ({ params }: SubServicePageProps) => {
                 >
                   <service.icon className="w-10 h-10" style={{ color: service.color }} />
                 </div>
-              </div>
+              </div> */}
               
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#545454] mb-6 leading-tight">
                 {subService.name}

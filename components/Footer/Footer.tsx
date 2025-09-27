@@ -15,9 +15,9 @@ const services = [
 ];
 const companyLinks = [
   { name: "About Us", slug: "about" },
-  { name: "Our Team", slug: "team" },
-  { name: "Careers", slug: "careers" },
-  { name: "News & Insights", slug: "news" },
+  // { name: "Our Team", slug: "team" },
+  // { name: "Careers", slug: "careers" },
+  // { name: "News & Insights", slug: "news" },
   { name: "Contact", slug: "contact" },
   { name: "Privacy Policy", slug: "privacy" },
 ];
