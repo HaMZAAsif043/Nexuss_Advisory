@@ -129,9 +129,9 @@ const ServicesPage = () => {
                 <h3 className="text-xl font-bold text-[#545454] mb-2">
                   {service.title}
                 </h3>
-                <p className="text-sm text-[#545454]/60">
+                {/* <p className="text-sm text-[#545454]/60">
                   {service.subServices.length} specialized services
-                </p>
+                </p> */}
               </div>
 
               {/* Description */}

@@ -200,7 +200,7 @@ const BlogPage = () => {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              Nexuss Advisory Blog
+              Nexuss Advisory News & Insights
             </h1>
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
               Insights, expertise, and industry knowledge from our financial experts

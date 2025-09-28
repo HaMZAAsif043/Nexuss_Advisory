@@ -75,55 +75,63 @@ const AreasOfFocus = () => {
           >
             What We Offer
           </motion.h2>
+<div className="flex flex-col items-center gap-8 max-w-6xl mx-auto">
+  {/* Row 1 (3 items) */}
+  <div className="flex flex-wrap justify-center gap-8">
+    {focusAreas.slice(0, 3).map((area, index) => (
+      <motion.div
+        key={index}
+        className="text-center group cursor-pointer w-full max-w-xs"
+        whileHover={{ y: -10 }}
+        onClick={() => router.push(area.link)}
+        transition={{ duration: 0.3 }}
+      >
+        <motion.div
+          className="w-16 h-16 bg-[#4DC6D7]/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-[#4DC6D7]/20 transition-all duration-300"
+          whileHover={{ scale: 1.1, rotate: 5 }}
+        >
+          <area.icon className="w-7 h-7 mb-1" style={{ color: area.color }} />
+        </motion.div>
 
-          {/* Focus Areas Grid */}
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 max-w-full mx-auto"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ amount: 0.2 }}
-            variants={{
-              hidden: { opacity: 0 },
-              visible: {
-                opacity: 1,
-                transition: { staggerChildren: 0.2 },
-              },
-            }}
-          >
-            {focusAreas.map((area, index) => (
-              <motion.div
-                key={index}
-                className="text-center group cursor-pointer"
-                variants={{
-                  hidden: { opacity: 0, y: 30 },
-                  visible: { opacity: 1, y: 0 },
-                }}
-                whileHover={{ y: -10 }}
-                onClick={() => router.push(area.link)}
-                transition={{ duration: 0.3 }}
-              >
-                <motion.div
-                  className="w-16 h-16 bg-[#4DC6D7]/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-[#4DC6D7]/20 transition-all duration-300"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                >
-                  <area.icon
-                    className="w-7 h-7 mb-1"
-                    style={{ color: area.color }}
-                  />
-                </motion.div>
+        <h3 className="text-xl font-semibold text-[#545454] mb-2 group-hover:text-[#4DC6D7] transition-colors duration-300">
+          {area.title}
+        </h3>
 
-                {/* Title with fixed height */}
-                <h3 className="text-xl font-semibold text-[#545454] mb-2 group-hover:text-[#4DC6D7] transition-colors duration-300 min-h-[50px] flex items-start justify-center text-center leading-tight">
-                  {area.title}
-                </h3>
+        <p className="text-[#545454]/80 group-hover:text-[#545454]/90 transition-colors text-center duration-300 leading-relaxed">
+          {area.description}
+        </p>
+      </motion.div>
+    ))}
+  </div>
 
-                {/* Description with fixed height */}
-                <p className="text-[#545454]/80 group-hover:text-[#545454]/90 transition-colors duration-300 min-h-[72px] flex items-center justify-center text-justify leading-relaxed">
-                  {area.description}
-                </p>
-              </motion.div>
-            ))}
-          </motion.div>
+  {/* Row 2 (2 items centered) */}
+  <div className="flex justify-center gap-8">
+    {focusAreas.slice(3).map((area, index) => (
+      <motion.div
+        key={index}
+        className="text-center group cursor-pointer w-full max-w-xs"
+        whileHover={{ y: -10 }}
+        onClick={() => router.push(area.link)}
+        transition={{ duration: 0.3 }}
+      >
+        <motion.div
+          className="w-16 h-16 bg-[#4DC6D7]/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-[#4DC6D7]/20 transition-all duration-300"
+          whileHover={{ scale: 1.1, rotate: 5 }}
+        >
+          <area.icon className="w-7 h-7 mb-1" style={{ color: area.color }} />
+        </motion.div>
+
+        <h3 className="text-xl font-semibold text-[#545454] mb-2 group-hover:text-[#4DC6D7] transition-colors duration-300">
+          {area.title}
+        </h3>
+
+        <p className="text-[#545454]/80 group-hover:text-[#545454]/90 text-center transition-colors duration-300 leading-relaxed">
+          {area.description}
+        </p>
+      </motion.div>
+    ))}
+  </div>
+</div>
         </motion.div>
       </div>
     </section>

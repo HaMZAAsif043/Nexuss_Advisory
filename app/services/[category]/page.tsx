@@ -1,10 +1,11 @@
 "use client"
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, CheckCircle, Phone, Mail, Calendar } from 'lucide-react';
+import { ArrowLeft, Phone, Mail, Calendar, Clock, Award, Users, Target, TrendingUp, Shield, Eye, BarChart3, DollarSign, Zap, CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { services } from '@/data/services';
+import LeadModal from '@/components/LeadModal/LeadModal';
 
 interface CategoryPageProps {
   params: {
@@ -14,11 +15,47 @@ interface CategoryPageProps {
 
 const CategoryPage = ({ params }: CategoryPageProps) => {
   const { category } = params;
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState<{ name: string; id: string } | null>(null);
 
   const service = services.find(s => s.id === category);
   if (!service) {
     notFound();
   }
+
+  const handleServiceClick = (subService: { id: string; name: string }) => {
+    setSelectedService(subService);
+    setIsModalOpen(true);
+  };
+
+  // Function to get appropriate icon based on benefit text
+  const getBenefitIcon = (benefit: string) => {
+    const benefitLower = benefit.toLowerCase();
+    
+    if (benefitLower.includes('decision') || benefitLower.includes('strategic') || benefitLower.includes('planning')) {
+      return Target;
+    } else if (benefitLower.includes('cash') || benefitLower.includes('financial') || benefitLower.includes('cost') || benefitLower.includes('value')) {
+      return DollarSign;
+    } else if (benefitLower.includes('risk') || benefitLower.includes('compliance') || benefitLower.includes('security')) {
+      return Shield;
+    } else if (benefitLower.includes('growth') || benefitLower.includes('trend') || benefitLower.includes('performance')) {
+      return TrendingUp;
+    } else if (benefitLower.includes('insight') || benefitLower.includes('visibility') || benefitLower.includes('transparency') || benefitLower.includes('monitoring')) {
+      return Eye;
+    } else if (benefitLower.includes('report') || benefitLower.includes('analysis') || benefitLower.includes('tracking') || benefitLower.includes('data')) {
+      return BarChart3;
+    } else if (benefitLower.includes('efficiency') || benefitLower.includes('optimization') || benefitLower.includes('automated')) {
+      return Zap;
+    } else if (benefitLower.includes('quality') || benefitLower.includes('accuracy') || benefitLower.includes('proven') || benefitLower.includes('successful')) {
+      return Award;
+    } else if (benefitLower.includes('support') || benefitLower.includes('service') || benefitLower.includes('dedicated')) {
+      return Users;
+    } else if (benefitLower.includes('time') || benefitLower.includes('delivery') || benefitLower.includes('real-time')) {
+      return Clock;
+    } else {
+      return CheckCircle2; // Default icon
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
@@ -63,7 +100,7 @@ const CategoryPage = ({ params }: CategoryPageProps) => {
               <ArrowLeft className="w-4 h-4" />
               <span>Back to all services</span>
             </Link>
-{/*             
+            
             <div className="flex items-center justify-center mb-6">
               <div 
                 className="w-20 h-20 rounded-full flex items-center justify-center"
@@ -71,7 +108,7 @@ const CategoryPage = ({ params }: CategoryPageProps) => {
               >
                 <service.icon className="w-10 h-10" style={{ color: service.color }} />
               </div>
-            </div> */}
+            </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#545454] mb-6 leading-tight">
               {service.title}
@@ -126,7 +163,7 @@ const CategoryPage = ({ params }: CategoryPageProps) => {
                 <p className="text-[#545454]/80 text-lg leading-relaxed mb-8">
                   {service.overview}
                 </p>
-
+{/* 
                 <h3 className="text-2xl font-bold text-[#545454] mb-6">Key Features</h3>
                 <div className="grid md:grid-cols-2 gap-4 mb-12">
                   {service.features.map((feature: string, index: number) => (
@@ -142,7 +179,7 @@ const CategoryPage = ({ params }: CategoryPageProps) => {
                       <span className="text-[#545454]/80">{feature}</span>
                     </motion.div>
                   ))}
-                </div>
+                </div> */}
               </motion.div>
             </div>
 
@@ -218,18 +255,18 @@ const CategoryPage = ({ params }: CategoryPageProps) => {
                 transition={{ delay: index * 0.1, duration: 0.6 }}
                 viewport={{ amount: 0.3 }}
                 whileHover={{ y: -5 }}
+                onClick={() => handleServiceClick({ id: subService.id, name: subService.name })}
               >
                 <h3 className="text-lg font-bold text-[#545454] mb-3">{subService.name}</h3>
                 <p className="text-[#545454]/70 mb-4 leading-relaxed">{subService.description}</p>
                 
-                <Link 
-                  href={`/services/${service.id}/${subService.id}`}
-                  className="inline-flex items-center space-x-2 font-semibold transition-colors duration-300"
+                <button 
+                  className="inline-flex items-center space-x-2 font-semibold transition-colors duration-300 hover:underline"
                   style={{ color: service.color }}
                 >
-                  <span>Learn More</span>
+                  <span>Get Quote</span>
                   <ArrowLeft className="w-4 h-4 rotate-180" />
-                </Link>
+                </button>
               </motion.div>
             ))}
           </div>
@@ -253,27 +290,24 @@ const CategoryPage = ({ params }: CategoryPageProps) => {
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {service.benefits.map((benefit, index) => (
-              <motion.div
-                key={index}
-                className="text-center p-6"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
-                viewport={{ amount: 0.3 }}
-              >
-                <div 
-                  className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4"
-                  style={{ backgroundColor: `${service.color}20` }}
+            {service.benefits.map((benefit, index) => {
+              const IconComponent = getBenefitIcon(benefit);
+              return (
+                <motion.div
+                  key={index}
+                  className="text-center p-6"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1, duration: 0.6 }}
+                  viewport={{ amount: 0.3 }}
                 >
-                  <div 
-                    className="w-3 h-3 rounded-full"
-                    style={{ backgroundColor: service.color }}
-                  />
-                </div>
-                <h3 className="text-lg font-bold text-[#545454] mb-2">{benefit}</h3>
-              </motion.div>
-            ))}
+                  <div className="w-16 h-16 bg-gradient-to-br from-[#4DC6D7] to-[#0798B1] rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <IconComponent className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-lg font-bold text-[#545454] mb-2">{benefit}</h3>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -373,6 +407,19 @@ const CategoryPage = ({ params }: CategoryPageProps) => {
           </motion.div>
         </div>
       </motion.section>
+
+      {/* Lead Modal */}
+      {selectedService && (
+        <LeadModal
+          isOpen={isModalOpen}
+          onClose={() => {
+            setIsModalOpen(false);
+            setSelectedService(null);
+          }}
+          serviceName={selectedService.name}
+          serviceCategory={service.title}
+        />
+      )}
     </div>
   );
 };

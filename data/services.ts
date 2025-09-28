@@ -1,5 +1,5 @@
 // Services Data for Nexuss Advisory
-import { LucideIcon, Calculator, DollarSign, Handshake, TrendingUp, BarChart3 } from 'lucide-react';
+import { LucideIcon, Calculator, ChartNoAxesCombined, Handshake, ChartCandlestick,LaptopMinimalCheck } from 'lucide-react';
 
 export interface Service {
   id: string;
@@ -177,7 +177,7 @@ export const services: Service[] = [
     id: 'financial',
     title: 'Financial Services',
     description: 'Strategic financial planning and management services to optimize your business performance.',
-    icon: DollarSign,
+    icon: ChartNoAxesCombined,
     color: '#2D5AA0',
     image: '/services/financial.jpg',
     overview:
@@ -312,7 +312,7 @@ export const services: Service[] = [
     id: 'investment',
     title: 'Investment Research & Advisory',
     description: 'Professional investment research and analysis services for informed decision making.',
-    icon: TrendingUp,
+    icon: ChartCandlestick,
     color: '#7B68EE',
     image: '/services/investment.jpg',
     overview:
@@ -340,7 +340,7 @@ export const services: Service[] = [
     id: 'analytics',
     title: 'Data-Driven Insights & Analytics',
     description: 'Advanced analytics and business intelligence solutions for data-driven decision making.',
-    icon: BarChart3,
+    icon: LaptopMinimalCheck,
     color: '#20B2AA',
     image: '/services/financial.jpg',
     overview:

@@ -54,7 +54,7 @@ const ArticlesSection = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-[#545454] mb-4">
-            Latest articles & tips
+          News & Insights
           </h2>
           <p className="text-[#545454]/80 max-w-2xl mx-auto">
             Stay informed with expert insights, industry trends, and practical financial advice 

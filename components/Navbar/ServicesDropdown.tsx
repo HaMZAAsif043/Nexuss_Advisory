@@ -94,7 +94,7 @@ const ServicesDropdown = () => {
           after:transition-all after:duration-300 after:rounded-full
           hover:after:w-full ${isOpen ? "text-[#0798B1] after:w-full bg-[#4DC6D7]/10" : ""}`}
       >
-        <span>Our Services</span>
+        <span>Solutions</span>
         <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
       </button>
 
@@ -182,7 +182,7 @@ const ServicesDropdown = () => {
                                 transition={{ delay: subIndex * 0.03, duration: 0.2 }}
                               >
                                 <Link
-                                  href={subService.href}
+                                  href={service.href}
                                   className="group flex items-center space-x-3 px-4 py-2 text-[#545454]/80 hover:bg-gradient-to-r hover:from-[#4DC6D7]/10 hover:to-transparent hover:text-[#0798B1] transition-all duration-300 relative overflow-hidden"
                                 >
                                   <div className="w-1.5 h-1.5 rounded-full bg-[#4DC6D7]/50 group-hover:bg-[#4DC6D7] transition-colors duration-300 flex-shrink-0"></div>

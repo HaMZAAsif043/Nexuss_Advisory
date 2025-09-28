@@ -1,8 +1,83 @@
 "use client"
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Loader2, CheckCircle, AlertCircle } from 'lucide-react';
+
+interface FormData {
+  firstName: string;
+  email: string;
+  phone: string;
+  subject: string;
+  message: string;
+  privacy: boolean;
+}
 
 const ContactSection = () => {
+  const [formData, setFormData] = useState<FormData>({
+    firstName: '',
+    email: '',
+    phone: '',
+    subject: '',
+    message: '',
+    privacy: false
+  });
+  
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value, type } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          timestamp: new Date().toISOString()
+        }),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        // Reset form
+        setFormData({
+          firstName: '',
+          email: '',
+          phone: '',
+          subject: '',
+          message: '',
+          privacy: false
+        });
+      } else {
+        setSubmitStatus('error');
+        setErrorMessage(result.error || 'Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error submitting contact form:', error);
+      setSubmitStatus('error');
+      setErrorMessage('Network error. Please check your connection and try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
@@ -85,7 +160,7 @@ const ContactSection = () => {
               Send us a message
             </h3>
             
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-4">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -102,7 +177,10 @@ const ContactSection = () => {
                       type="text"
                       id="firstName"
                       name="firstName"
+                      value={formData.firstName}
+                      onChange={handleInputChange}
                       placeholder="Name"
+                      required
                       className="w-full pl-10 pr-4 py-4 bg-transparent border-0 border-b-2 border-[#545454]/20 border-dashed focus:border-solid focus:border-[#4DC6D7] focus:outline-none transition-all duration-300 text-[#545454] placeholder-gray-500"
                     />
                     <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#4DC6D7] border-animation transition-all duration-500 ease-out"></div>
@@ -124,7 +202,10 @@ const ContactSection = () => {
                       type="email"
                       id="email"
                       name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
                       placeholder="Email Address"
+                      required
                       className="w-full pl-10 pr-4 py-4 bg-transparent border-0 border-b-2 border-[#545454]/20 border-dashed focus:border-solid focus:border-[#4DC6D7] focus:outline-none transition-all duration-300 text-[#545454] placeholder-gray-500"
                     />
                     <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#4DC6D7] border-animation transition-all duration-500 ease-out"></div>
@@ -147,7 +228,10 @@ const ContactSection = () => {
                     type="tel"
                     id="phone"
                     name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
                     placeholder="Phone"
+                    required
                     className="w-full pl-10 pr-4 py-4 bg-transparent border-0 border-b-2 border-[#545454]/20 border-dashed focus:border-solid focus:border-[#4DC6D7] focus:outline-none transition-all duration-300 text-[#545454] placeholder-gray-500"
                   />
                   <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#4DC6D7] border-animation transition-all duration-500 ease-out"></div>
@@ -169,7 +253,10 @@ const ContactSection = () => {
                     type="text"
                     id="subject"
                     name="subject"
+                    value={formData.subject}
+                    onChange={handleInputChange}
                     placeholder="Subject"
+                    required
                     className="w-full pl-10 pr-4 py-4 bg-transparent border-0 border-b-2 border-[#545454]/20 border-dashed focus:border-solid focus:border-[#4DC6D7] focus:outline-none transition-all duration-300 text-[#545454] placeholder-gray-500"
                   />
                   <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#4DC6D7] border-animation transition-all duration-500 ease-out"></div>
@@ -187,6 +274,8 @@ const ContactSection = () => {
                   <textarea
                     id="message"
                     name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
                     rows={4}
                     placeholder="How can we help you? Feel free to get in touch!"
                     className="w-full pl-4 pr-4 py-4 bg-transparent border-0 border-b-2 border-[#545454]/20 border-dashed focus:border-solid focus:border-[#4DC6D7] focus:outline-none transition-all duration-300 text-[#545454] placeholder-gray-500 resize-none"
@@ -207,6 +296,9 @@ const ContactSection = () => {
                   type="checkbox"
                   id="privacy"
                   name="privacy"
+                  checked={formData.privacy}
+                  onChange={handleInputChange}
+                  required
                   className="w-4 h-4 text-[#4DC6D7] border-2 border-[#545454]/20 rounded focus:ring-[#4DC6D7] focus:ring-2"
                 />
                 <label htmlFor="privacy" className="text-sm text-[#545454]/80">
@@ -218,6 +310,32 @@ const ContactSection = () => {
                 </label>
               </motion.div>
 
+              {/* Error Message */}
+              {submitStatus === 'error' && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="p-4 bg-red-50 border border-red-200 rounded-lg flex items-center space-x-2"
+                >
+                  <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0" />
+                  <p className="text-red-600 text-sm">{errorMessage}</p>
+                </motion.div>
+              )}
+
+              {/* Success Message */}
+              {submitStatus === 'success' && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="p-4 bg-green-50 border border-green-200 rounded-lg flex items-center space-x-2"
+                >
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                  <p className="text-green-600 text-sm">
+                    Thank you for your message! We&apos;ll get back to you soon.
+                  </p>
+                </motion.div>
+              )}
+
               {/* Sticky Submit Button */}
               <motion.div
                 className="sticky bottom-4 z-10"
@@ -228,25 +346,42 @@ const ContactSection = () => {
               >
                 <motion.button
                   type="submit"
-                  className="relative w-full bg-[#4DC6D7] hover:bg-[#3bb5c6] text-white py-4 px-6 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl overflow-hidden group button-ripple"
-                  whileHover={{ scale: 1.02, y: -1 }}
-                  whileTap={{ scale: 0.98 }}
+                  disabled={isSubmitting}
+                  className="relative w-full bg-[#4DC6D7] hover:bg-[#3bb5c6] text-white py-4 px-6 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl overflow-hidden group button-ripple disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-[#4DC6D7]"
+                  whileHover={!isSubmitting ? { scale: 1.02, y: -1 } : {}}
+                  whileTap={!isSubmitting ? { scale: 0.98 } : {}}
                 >
                   <span className="relative z-10 flex items-center justify-center space-x-2">
-                    <span>Get In Touch</span>
-                    <motion.svg 
-                      className="w-5 h-5" 
-                      fill="none" 
-                      stroke="currentColor" 
-                      viewBox="0 0 24 24"
-                      animate={{ x: [0, 5, 0] }}
-                      transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                    </motion.svg>
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="w-5 h-5 animate-spin" />
+                        <span>Sending...</span>
+                      </>
+                    ) : submitStatus === 'success' ? (
+                      <>
+                        <CheckCircle className="w-5 h-5" />
+                        <span>Message Sent!</span>
+                      </>
+                    ) : (
+                      <>
+                        <span>Get In Touch</span>
+                        <motion.svg 
+                          className="w-5 h-5" 
+                          fill="none" 
+                          stroke="currentColor" 
+                          viewBox="0 0 24 24"
+                          animate={{ x: [0, 5, 0] }}
+                          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                        </motion.svg>
+                      </>
+                    )}
                   </span>
                   {/* Animated background on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#3bb5c6] to-[#4DC6D7] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+                  {!isSubmitting && (
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#3bb5c6] to-[#4DC6D7] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+                  )}
                 </motion.button>
               </motion.div>
             </form>

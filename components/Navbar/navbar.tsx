@@ -19,8 +19,8 @@ const Navbar = () => {
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "About Us", href: "/about" },
-    { name: "Blog", href: "/blog" },    
-    { name: "Contacts", href: "/contacts" },
+    { name: "Insights", href: "/blog" },    
+    { name: "Contact", href: "/contacts" },
   ];
   return (
     <nav className="relative p-3 bg-white/95 backdrop-blur-lg border-b border-[#4DC6D7]/20 shadow-lg flex items-center justify-between overflow-visible" onClick={()=>ShowSocialLinks && setShowSocialLinks(false)}>

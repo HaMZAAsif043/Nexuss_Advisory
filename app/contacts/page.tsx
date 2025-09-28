@@ -1,7 +1,7 @@
 "use client"
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import {  Phone, Mail, Send, User, MessageSquare, Twitter, Linkedin, Facebook, Instagram, Share2 } from 'lucide-react';
+import { Phone, Mail, Send, User, MessageSquare, Twitter, Linkedin, Facebook, Instagram, Share2, Loader2, CheckCircle, AlertCircle } from 'lucide-react';
 
 // Import custom WhatsApp icon
 const WhatsAppIcon = () => (
@@ -11,7 +11,91 @@ const WhatsAppIcon = () => (
   </svg>
 );
 
+interface FormData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  subject: string;
+  message: string;
+  privacy: boolean;
+}
+
 const ContactPage = () => {
+  const [formData, setFormData] = useState<FormData>({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    subject: '',
+    message: '',
+    privacy: false
+  });
+  
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value, type } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          firstName: `${formData.firstName} ${formData.lastName}`.trim(),
+          email: formData.email,
+          phone: formData.phone,
+          subject: formData.subject,
+          message: formData.message,
+          privacy: formData.privacy,
+          timestamp: new Date().toISOString(),
+          location: 'Pakistan',
+          timezone: 'Asia/Karachi'
+        }),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        // Reset form
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          subject: '',
+          message: '',
+          privacy: false
+        });
+      } else {
+        setSubmitStatus('error');
+        setErrorMessage(result.error || 'Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error submitting contact form:', error);
+      setSubmitStatus('error');
+      setErrorMessage('Network error. Please check your connection and try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
       {/* Hero Section */}
@@ -195,7 +279,7 @@ With Nexuss Advisory, you don’t just get services — you get a partner invest
                 Send us a Message
               </h3>
               
-              <form className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -210,6 +294,10 @@ With Nexuss Advisory, you don’t just get services — you get a partner invest
                       <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-[#545454]/50" />
                       <input
                         type="text"
+                        name="firstName"
+                        value={formData.firstName}
+                        onChange={handleInputChange}
+                        required
                         className="w-full pl-12 pr-4 py-4 border-2 border-[#545454]/20 rounded-xl focus:border-[#4DC6D7] focus:outline-none transition-all duration-300 text-[#545454]"
                         placeholder="Enter your first name"
                       />
@@ -229,6 +317,10 @@ With Nexuss Advisory, you don’t just get services — you get a partner invest
                       <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-[#545454]/50" />
                       <input
                         type="text"
+                        name="lastName"
+                        value={formData.lastName}
+                        onChange={handleInputChange}
+                        required
                         className="w-full pl-12 pr-4 py-4 border-2 border-[#545454]/20 rounded-xl focus:border-[#4DC6D7] focus:outline-none transition-all duration-300 text-[#545454]"
                         placeholder="Enter your last name"
                       />
@@ -249,6 +341,10 @@ With Nexuss Advisory, you don’t just get services — you get a partner invest
                     <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-[#545454]/50" />
                     <input
                       type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
                       className="w-full pl-12 pr-4 py-4 border-2 border-[#545454]/20 rounded-xl focus:border-[#4DC6D7] focus:outline-none transition-all duration-300 text-[#545454]"
                       placeholder="Enter your email address"
                     />
@@ -262,12 +358,16 @@ With Nexuss Advisory, you don’t just get services — you get a partner invest
                   viewport={{ amount: 0.3 }}
                 >
                   <label className="block text-sm font-medium text-[#545454] mb-2">
-                    Phone Number
+                    Phone Number *
                   </label>
                   <div className="relative">
                     <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-[#545454]/50" />
                     <input
                       type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      required
                       className="w-full pl-12 pr-4 py-4 border-2 border-[#545454]/20 rounded-xl focus:border-[#4DC6D7] focus:outline-none transition-all duration-300 text-[#545454]"
                       placeholder="Enter your phone number"
                     />
@@ -281,15 +381,21 @@ With Nexuss Advisory, you don’t just get services — you get a partner invest
                   viewport={{ amount: 0.3 }}
                 >
                   <label className="block text-sm font-medium text-[#545454] mb-2">
-                    Subject
+                    Subject *
                   </label>
-                  <select className="w-full px-4 py-4 border-2 border-[#545454]/20 rounded-xl focus:border-[#4DC6D7] focus:outline-none transition-all duration-300 text-[#545454]">
-                    <option>Select a service...</option>
-                    <option>Financial Planning</option>
-                    <option>Investment Advisory</option>
-                    <option>Business Consulting</option>
-                    <option>Tax Planning</option>
-                    <option>Other</option>
+                  <select 
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-4 border-2 border-[#545454]/20 rounded-xl focus:border-[#4DC6D7] focus:outline-none transition-all duration-300 text-[#545454]"
+                  >
+                    <option value="">Select a service...</option>
+                    <option value="Financial Planning">Financial Planning</option>
+                    <option value="Investment Advisory">Investment Advisory</option>
+                    <option value="Business Consulting">Business Consulting</option>
+                    <option value="Tax Planning">Tax Planning</option>
+                    <option value="Other">Other</option>
                   </select>
                 </motion.div>
 
@@ -305,12 +411,42 @@ With Nexuss Advisory, you don’t just get services — you get a partner invest
                   <div className="relative">
                     <MessageSquare className="absolute left-3 top-4 w-5 h-5 text-[#545454]/50" />
                     <textarea
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      required
                       rows={6}
                       className="w-full pl-12 pr-4 py-4 border-2 border-[#545454]/20 rounded-xl focus:border-[#4DC6D7] focus:outline-none transition-all duration-300 text-[#545454] resize-none"
                       placeholder="Tell us about your financial goals and how we can help..."
                     />
                   </div>
                 </motion.div>
+
+                {/* Error Message */}
+                {submitStatus === 'error' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="p-4 bg-red-50 border border-red-200 rounded-lg flex items-center space-x-2"
+                  >
+                    <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0" />
+                    <p className="text-red-600 text-sm">{errorMessage}</p>
+                  </motion.div>
+                )}
+
+                {/* Success Message */}
+                {submitStatus === 'success' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="p-4 bg-green-50 border border-green-200 rounded-lg flex items-center space-x-2"
+                  >
+                    <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                    <p className="text-green-600 text-sm">
+                      Thank you for your message! We&apos;ll get back to you soon.
+                    </p>
+                  </motion.div>
+                )}
 
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -319,7 +455,15 @@ With Nexuss Advisory, you don’t just get services — you get a partner invest
                   viewport={{ amount: 0.3 }}
                 >
                   <div className="flex items-center space-x-3 mb-6">
-                    <input type="checkbox" id="privacy" className="w-5 h-5 text-[#4DC6D7] border-2 border-[#545454]/20 rounded focus:ring-[#4DC6D7]" />
+                    <input 
+                      type="checkbox" 
+                      id="privacy" 
+                      name="privacy"
+                      checked={formData.privacy}
+                      onChange={handleInputChange}
+                      required
+                      className="w-5 h-5 text-[#4DC6D7] border-2 border-[#545454]/20 rounded focus:ring-[#4DC6D7]" 
+                    />
                     <label htmlFor="privacy" className="text-sm text-[#545454]/80">
                       I agree to the <a href="#" className="text-[#4DC6D7] hover:underline">Privacy Policy</a> and 
                       <a href="#" className="text-[#4DC6D7] hover:underline ml-1">Terms of Service</a>
@@ -328,12 +472,27 @@ With Nexuss Advisory, you don’t just get services — you get a partner invest
 
                   <motion.button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-[#4DC6D7] to-[#545454] hover:from-[#3bb5c6] hover:to-[#454545] text-white py-4 px-6 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
-                    whileHover={{ scale: 1.02, y: -2 }}
-                    whileTap={{ scale: 0.98 }}
+                    disabled={isSubmitting}
+                    className="w-full bg-gradient-to-r from-[#4DC6D7] to-[#545454] hover:from-[#3bb5c6] hover:to-[#454545] text-white py-4 px-6 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                    whileHover={!isSubmitting ? { scale: 1.02, y: -2 } : {}}
+                    whileTap={!isSubmitting ? { scale: 0.98 } : {}}
                   >
-                    <Send className="w-5 h-5" />
-                    <span>Send Message</span>
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="w-5 h-5 animate-spin" />
+                        <span>Sending...</span>
+                      </>
+                    ) : submitStatus === 'success' ? (
+                      <>
+                        <CheckCircle className="w-5 h-5" />
+                        <span>Message Sent!</span>
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-5 h-5" />
+                        <span>Send Message</span>
+                      </>
+                    )}
                   </motion.button>
                 </motion.div>
               </form>
